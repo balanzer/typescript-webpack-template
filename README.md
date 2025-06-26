@@ -26,4 +26,9 @@ typescript: The TypeScript compiler.
 
 ts-loader: A Webpack loader that transpiles TypeScript code into JavaScript.
 
-html-webpack-plugin: A plugin that simplifies the creation of HTML files to serve your bundles.
+html-webpack-plugin: A plugin that simplifies the creation of HTML files to serve your bundles
+
+
+## Configuring TypeScript
+
+`npx tsc --init`
