@@ -34,7 +34,7 @@ html-webpack-plugin: A plugin that simplifies the creation of HTML files to serv
 
 ## Running Project
 
-`npm start`
+`npm start` - starts browser with (http://localhost:9000/)
 
 ## Build
 

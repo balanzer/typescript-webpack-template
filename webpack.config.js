@@ -6,19 +6,22 @@ module.exports = {
   entry: "./src/index.ts",
   devtool: "inline-source-map",
   devServer: {
-    static: "./dist",
+    static: path.join(__dirname, "dist"),
+    compress: true,
+    port: 9000,
+    hot: true,
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts$/,
         use: "ts-loader",
         exclude: /node_modules/,
       },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".ts", ".js"],
   },
   output: {
     filename: "bundle.js",
@@ -27,8 +30,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Webpack with TypeScript",
-      template: "src/index.html",
+      title: "development mode",
+      template: "index.html",
     }),
   ],
 };
