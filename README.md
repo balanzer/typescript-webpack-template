@@ -39,3 +39,7 @@ html-webpack-plugin: A plugin that simplifies the creation of HTML files to serv
 ## Build
 
 `npm run build`
+
+## ESLint
+
+`npm run lint`

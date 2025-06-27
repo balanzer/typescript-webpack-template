@@ -7,3 +7,6 @@ document.body.appendChild(heading);
 
 const logger = new Logger("AppLogger");
 logger.info("Application started successfully.");
+
+const apple = "a";
+console.log(apple);
