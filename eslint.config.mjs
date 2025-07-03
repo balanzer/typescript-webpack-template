@@ -22,7 +22,7 @@ const LINT_LEVEL = {
 };
 
 export default defineConfig([
-  { files: ["src/scripts/**/*.{js,mjs,cjs,ts}"] },
+  { files: ["scripts/src/**/*.{js,mjs,cjs,ts}"] },
   {
     ignores: [
       "**/webpack.config.js",
@@ -52,12 +52,12 @@ export default defineConfig([
     extends: ["css/recommended"],
   },
   {
-    files: ["src/scripts/**/*.js"],
+    files: ["scripts/src/**/*.js"],
     plugins: { js },
     extends: ["js/recommended"],
   },
   {
-    files: ["src/scripts/**/*.{js,mjs,cjs,ts}"],
+    files: ["scripts/src/**/*.{js,mjs,cjs,ts}"],
     languageOptions: { globals: globals.browser },
   },
   tseslint.configs.recommended,
@@ -83,20 +83,20 @@ export default defineConfig([
       "check-file/filename-naming-convention": [
         LINT_LEVEL.ERROR,
         {
-          "src/scripts/**/*.{js,ts}": "KEBAB_CASE", // Apply KEBAB_CASE("my-example-file.ts") to .js and .ts files
+          "scripts/src/**/*.{js,ts}": "KEBAB_CASE", // Apply KEBAB_CASE("my-example-file.ts") to .js and .ts files
         },
       ],
       "check-file/folder-naming-convention": [
         LINT_LEVEL.ERROR,
         {
-          "src/*/": "KEBAB_CASE", // Apply KEBAB_CASE(hello-world, logger) to all folders in src/
+          "scripts/*/": "KEBAB_CASE", // Apply KEBAB_CASE(hello-world, logger) to all folders in src/
         },
       ],
     },
   },
   //rules configuration - some files require different rules
   {
-    files: ["src/scripts/logger/logger.ts"],
+    files: ["scripts/src/logger/logger.ts"],
     rules: {
       "no-console": LINT_LEVEL.OFF, // Allow console logs in logger file
       "no-unused-vars": LINT_LEVEL.OFF,

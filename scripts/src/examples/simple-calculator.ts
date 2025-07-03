@@ -1,4 +1,4 @@
-class SimpleCalculator {
+export class SimpleCalculator {
   /**
    * Adds two numbers and returns the sum.
    * @param a The first number.
@@ -82,27 +82,4 @@ class SimpleCalculator {
     }
     return Math.sqrt(a);
   }
-}
-
-// Example Usage:
-const calculator = new SimpleCalculator();
-
-console.log("Addition (5 + 3):", calculator.add(5, 3)); // Output: 8
-console.log("Subtraction (10 - 4):", calculator.subtract(10, 4)); // Output: 6
-console.log("Multiplication (6 * 7):", calculator.multiply(6, 7)); // Output: 42
-console.log("Division (20 / 5):", calculator.divide(20, 5)); // Output: 4
-console.log("Modulo (17 % 5):", calculator.modulo(17, 5)); // Output: 2
-console.log("Power (2^3):", calculator.power(2, 3)); // Output: 8
-console.log("Square Root (25):", calculator.squareRoot(25)); // Output: 5
-
-try {
-  console.log("Division by zero (10 / 0):", calculator.divide(10, 0));
-} catch (error: any) {
-  console.error("Error:", error.message); // Output: Error: Cannot divide by zero.
-}
-
-try {
-  console.log("Square Root of negative (-9):", calculator.squareRoot(-9));
-} catch (error: any) {
-  console.error("Error:", error.message); // Output: Error: Cannot calculate square root of a negative number.
 }
