@@ -5,7 +5,7 @@ import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import css from "@eslint/css";
 import { defineConfig } from "eslint/config";
-
+import checkFile from "eslint-plugin-check-file";
 /**
  *
  * Rule Severities
@@ -62,7 +62,33 @@ export default defineConfig([
   },
   tseslint.configs.recommended,
   //rules configuration
-  //rule excusion
+  //common rules
+  {
+    rules: {
+      eqeqeq: [LINT_LEVEL.ERROR, "always", { null: "ignore" }],
+    },
+  },
+  //rules configuration - file naming conventions
+  {
+    plugins: {
+      "check-file": checkFile, // Register the plugin
+    },
+    rules: {
+      "check-file/filename-naming-convention": [
+        LINT_LEVEL.ERROR,
+        {
+          "src/scripts/**/*.{js,ts}": "KEBAB_CASE", // Apply KEBAB_CASE("my-example-file.ts") to .js and .ts files
+        },
+      ],
+      "check-file/folder-naming-convention": [
+        LINT_LEVEL.ERROR,
+        {
+          "src/*/": "KEBAB_CASE", // Apply KEBAB_CASE(hello-world, logger) to all folders in src/
+        },
+      ],
+    },
+  },
+  //rules configuration - some files require different rules
   {
     files: ["src/scripts/logger/logger.ts"],
     rules: {

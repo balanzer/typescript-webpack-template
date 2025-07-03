@@ -16,6 +16,6 @@ logger.log(banana);
 let cherry = "c";
 logger.log(cherry);
 
-if (cherry === banana) {
+if (cherry != null && cherry == banana) {
   logger.log("cherry is equal to banana");
 }
