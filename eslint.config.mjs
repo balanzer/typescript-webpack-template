@@ -107,6 +107,11 @@ export default defineConfig([
       ],
     },
   },
+  //rules configuration
+  //Enforcing naming conventions
+  {
+    rules: {},
+  },
   //rules configuration - some files require different rules
   {
     files: ["scripts/src/logger/logger.ts"],
