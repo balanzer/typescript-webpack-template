@@ -1,0 +1,21 @@
+import "../css/style.css";
+import { Logger } from "./logger/logger";
+import { createHeading } from "../greetings";
+
+const heading = createHeading("Hello, World!");
+document.body.appendChild(heading);
+
+const logger = new Logger("AppLogger");
+logger.info("Application started successfully.");
+
+const apple = "a";
+logger.log(apple);
+
+var banana = "b";
+logger.log(banana);
+let cherry = "c";
+logger.log(cherry);
+
+if (cherry === banana) {
+  logger.log("cherry is equal to banana");
+}

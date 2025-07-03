@@ -13,9 +13,12 @@ import { defineConfig } from "eslint/config";
  */
 
 export default defineConfig([
-  { files: ["src/**/*.{js,mjs,cjs,ts}"] },
+  { files: ["src/scripts/**/*.{js,mjs,cjs,ts}"] },
   { ignores: ["**/webpack.config.js", "dist/**"] },
-  { files: ["src/**/*.js"], languageOptions: { sourceType: "commonjs" } },
+  {
+    files: ["src/scripts/**/*.js"],
+    languageOptions: { sourceType: "commonjs" },
+  },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   tseslint.configs.recommended,

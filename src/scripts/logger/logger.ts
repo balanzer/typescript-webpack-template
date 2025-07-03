@@ -1,5 +1,6 @@
 interface ILogger {
   debug(message: string, ...args: any[]): void;
+  log(message: string, ...args: any[]): void;
   info(message: string, ...args: any[]): void;
   warn(message: string, ...args: any[]): void;
   error(message: string, ...args: any[]): void;
@@ -19,7 +20,10 @@ export class Logger implements ILogger {
     const formattedMessage = this.formatMessage(message, ...args);
     console.debug(formattedMessage);
   }
-
+  log(message: string, ...args: any[]): void {
+    const formattedMessage = this.formatMessage(message, ...args);
+    console.info(formattedMessage);
+  }
   info(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
     console.info(formattedMessage);
