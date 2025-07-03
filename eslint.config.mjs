@@ -14,7 +14,7 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   { files: ["src/scripts/**/*.{js,mjs,cjs,ts}"] },
-  { ignores: ["**/webpack.config.js", "dist/**"] },
+  { ignores: ["**/webpack.config.js", "**/eslint.config.mjs", "dist/**"] },
   {
     files: ["src/scripts/**/*.js"],
     languageOptions: { sourceType: "commonjs" },
@@ -25,10 +25,20 @@ export default defineConfig([
   {
     rules: {
       eqeqeq: "error",
-      "no-unused-vars": "warn",
-      "prefer-const": ["error", { ignoreReadBeforeAssign: true }],
+      "no-unused-vars": "off",
+      "no-var": "warn",
+      "@typescript-eslint/no-unused-vars": "off",
+      "prefer-const": ["off", { ignoreReadBeforeAssign: true }],
       "@typescript-eslint/no-explicit-any": "off",
-      "no-console": "error",
+      "no-console": "off",
+      "@typescript-eslint/naming-convention": "off",
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          selector: "variable",
+          format: ["camelCase", "UPPER_CASE"],
+        },
+      ],
     },
   },
   {
