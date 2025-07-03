@@ -10,7 +10,7 @@ Setting Up a New Webpack Project with TypeScript
 
 `npm install`
 
-# Webpack
+## Webpack
 
 ## Installing Dependencies
 
