@@ -27,7 +27,9 @@ export default defineConfig([
     ignores: [
       "**/webpack.config.js",
       "**/eslint.config.mjs",
+      "**/jest.config.js",
       "dist/**",
+      "coverage/**",
       "**/tsconfig.json",
       "**/package-lock.json",
       "**/package.json",
