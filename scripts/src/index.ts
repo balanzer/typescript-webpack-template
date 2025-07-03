@@ -19,3 +19,15 @@ logger.log(cherry);
 if (cherry != null && cherry == banana) {
   logger.log("cherry is equal to banana");
 }
+
+const x: Array<string> = ["a", "b"];
+const y: ReadonlyArray<string> = ["a", "b"];
+
+if (false) {
+  // @ts-ignore: Unreachable code error
+  console.log("hello");
+}
+if (false) {
+  /* @ts-ignore: Unreachable code error */
+  console.log("hello");
+}
