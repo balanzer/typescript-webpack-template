@@ -61,4 +61,14 @@ export default defineConfig([
     languageOptions: { globals: globals.browser },
   },
   tseslint.configs.recommended,
+  //rules configuration
+  //rule excusion
+  {
+    files: ["src/scripts/logger/logger.ts"],
+    rules: {
+      "no-console": LINT_LEVEL.OFF, // Allow console logs in logger file
+      "no-unused-vars": LINT_LEVEL.OFF,
+      "@typescript-eslint/no-explicit-any": LINT_LEVEL.OFF,
+    },
+  },
 ]);
