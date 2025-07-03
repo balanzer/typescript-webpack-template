@@ -2,7 +2,7 @@ import pluginJs from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import { defineConfig } from "eslint/config";
-
+import checkFile from "eslint-plugin-check-file";
 /**
  *
  * Rule Severities
@@ -23,6 +23,9 @@ export default defineConfig([
   pluginJs.configs.recommended,
   tseslint.configs.recommended,
   {
+    plugins: {
+      "check-file": checkFile, // Register the plugin
+    },
     rules: {
       eqeqeq: "error",
       "no-unused-vars": "off",
@@ -37,6 +40,18 @@ export default defineConfig([
         {
           selector: "variable",
           format: ["camelCase", "UPPER_CASE"],
+        },
+      ],
+      "check-file/filename-naming-convention": [
+        "error", // Set rule severity to error
+        {
+          "src/scripts/**/*.{js,ts}": "KEBAB_CASE", // Apply KEBAB_CASE("my-example-file.ts") to .js and .ts files
+        },
+      ],
+      "check-file/folder-naming-convention": [
+        "error",
+        {
+          "src/*/": "KEBAB_CASE", // Apply KEBAB_CASE(hello-world, logger) to all folders in src/
         },
       ],
     },
