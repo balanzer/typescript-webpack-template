@@ -66,6 +66,12 @@ export default defineConfig([
   {
     rules: {
       eqeqeq: [LINT_LEVEL.ERROR, "always", { null: "ignore" }],
+      "no-var": LINT_LEVEL.ERROR,
+      "no-unused-vars": LINT_LEVEL.OFF,
+      "@typescript-eslint/no-unused-vars": LINT_LEVEL.ERROR,
+      "no-console": LINT_LEVEL.ERROR,
+      "prefer-const": [LINT_LEVEL.ERROR, { ignoreReadBeforeAssign: true }],
+      "@typescript-eslint/no-explicit-any": LINT_LEVEL.ERROR,
     },
   },
   //rules configuration - file naming conventions
