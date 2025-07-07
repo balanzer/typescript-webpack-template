@@ -1,3 +1,5 @@
+import { Logger } from "../logger/logger";
+
 interface DeviceData {
   userAgent: string; // The full user agent string
   screenWidth: number; // Device screen width in pixels
@@ -12,7 +14,7 @@ interface DeviceData {
 
 export class DataLayerDevice {
   private _data: DeviceData;
-
+  private logger = new Logger("device-data");
   public constructor(initialData?: Partial<DeviceData>) {
     this._data = this.getDefaultDeviceData();
 
@@ -78,5 +80,64 @@ export class DataLayerDevice {
     value: DeviceData[K]
   ): void {
     this._data[key] = value;
+  }
+
+  /**
+   * Validates all properties of the internal DeviceData object.
+   * Checks for presence, basic types, and logical validity for known properties.
+   * Logs warnings for any invalid data found.
+   *
+   * @returns `string[]` errors all properties are invalid, `null` otherwise.
+   */
+
+  public collectErrors(): string[] {
+    const data = this._data; // Use a local reference
+
+    // Helper for logging validation errors
+    const logInvalid = (
+      property: string,
+      message: string,
+      value: any
+    ): void => {
+      this.logger.warn(
+        `Invalid property "${property}": ${message}. Value: ${JSON.stringify(
+          value
+        )}`
+      );
+    };
+
+    // --- Validate Required String Properties ---
+    const stringProps: Array<keyof DeviceData> = [
+      "userAgent",
+      "platform",
+      "viewport",
+      "orientation",
+    ];
+    stringProps.forEach((prop) => {
+      if (typeof data[prop] !== "string" || data[prop].trim() === "") {
+        logInvalid(prop, "Expected a non-empty string.", data[prop]);
+      }
+    });
+
+    // --- Validate Numeric Properties ---
+    const numericProps: Array<keyof DeviceData> = [
+      "screenWidth",
+      "screenHeight",
+      "viewportWidth",
+      "viewportHeight",
+    ];
+    numericProps.forEach((prop) => {
+      if (
+        typeof data[prop] !== "number" ||
+        data[prop] <= 0 ||
+        isNaN(data[prop])
+      ) {
+        logInvalid(prop, "Expected a non-negative number.", data[prop]);
+      }
+    });
+
+    const errors: string[] = [];
+
+    return errors;
   }
 }
