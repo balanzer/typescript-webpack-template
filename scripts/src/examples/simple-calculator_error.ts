@@ -1,4 +1,4 @@
-export class simpleCalculator {
+export class SimpleCalculatorFix {
   /**
    * Adds two numbers and returns the sum.
    * @param a The first number.

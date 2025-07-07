@@ -119,6 +119,16 @@ export default defineConfig([
           selector: "typeLike", // Target class names, interfaces, type aliases, etc.
           format: ["PascalCase"], // Enforce PascalCase
         },
+        {
+          selector: "variable", // Target variables (let, const, var)
+          format: ["camelCase"], // Enforce camelCase format
+        },
+        // You may want to allow UPPER_CASE for const variables that are intended as constants
+        {
+          selector: "variable",
+          modifiers: ["const"], // Target const variables
+          format: ["camelCase", "UPPER_CASE"], // Allow either camelCase or UPPER_CASE for const variables
+        },
       ],
     },
   },
