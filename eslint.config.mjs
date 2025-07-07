@@ -84,7 +84,7 @@ export default defineConfig([
       "@typescript-eslint/ban-tslint-comment": LINT_LEVEL.ERROR,
       "class-methods-use-this": LINT_LEVEL.OFF,
       "@typescript-eslint/class-methods-use-this": LINT_LEVEL.ERROR,
-      "@typescript-eslint/explicit-function-return-type": "error",
+      "@typescript-eslint/explicit-function-return-type": LINT_LEVEL.ERROR,
     },
   },
   //rules configuration - file naming conventions
