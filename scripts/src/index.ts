@@ -1,7 +1,7 @@
 import "../css/style.css";
 import { Logger } from "./logger/logger";
 import { createHeading } from "./greetings";
-import { DataStore } from "./data/state-manager/state-manager";
+import { DataStore } from "./store/state-manager/state-manager";
 
 const heading = createHeading("Hello, World!");
 document.body.appendChild(heading);
