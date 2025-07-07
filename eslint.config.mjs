@@ -16,7 +16,7 @@ import checkFile from "eslint-plugin-check-file";
  */
 
 const LINT_LEVEL = {
-  ERROR: "off", //actual value is "error"
+  ERROR: "error", //actual value is "error"
   WARN: "warn", //actual value is "warn"
   OFF: "off", //actual value is "off"
 };
@@ -87,7 +87,7 @@ export default defineConfig([
   //rules configuration
   //standard rules
   {
-    files: ["scripts/src/**/*.{ts}"], // Apply this configuration to TypeScript files
+    files: ["scripts/src/**/*.ts"], // Apply this configuration to TypeScript files
     rules: {
       "@typescript-eslint/ban-ts-comment": LINT_LEVEL.ERROR,
       "@typescript-eslint/ban-tslint-comment": LINT_LEVEL.ERROR,
@@ -95,7 +95,6 @@ export default defineConfig([
       "@typescript-eslint/class-methods-use-this": LINT_LEVEL.ERROR,
       "@typescript-eslint/explicit-function-return-type": LINT_LEVEL.ERROR,
       "@typescript-eslint/explicit-member-accessibility": LINT_LEVEL.ERROR,
-      "@typescript-eslint/restrict-plus-operands": LINT_LEVEL.ERROR,
     },
   },
   //rules configuration - file naming conventions
@@ -121,7 +120,7 @@ export default defineConfig([
   //rules configuration
   //Enforcing naming conventions
   {
-    files: ["scripts/src/**/*.{ts}"], // Apply this configuration to TypeScript files
+    files: ["scripts/src/**/*.ts"], // Apply this configuration to TypeScript files
     rules: {
       "@typescript-eslint/naming-convention": [
         // Use the naming-convention rule from the typescript-eslint plugin
@@ -140,18 +139,12 @@ export default defineConfig([
           modifiers: ["const"], // Target const variables
           format: ["camelCase", "UPPER_CASE"], // Allow either camelCase or UPPER_CASE for const variables
         },
-        {
-          selector: "variable",
-          types: ["boolean"],
-          format: ["camelCase"],
-          prefix: ["is", "has", "can", "should", "will", "did"],
-        },
       ],
     },
   },
   //rules configuration - Possible Errors
   {
-    files: ["scripts/src/**/*.{ts}"], // Apply this configuration to TypeScript files
+    files: ["scripts/src/**/*.ts"], // Apply this configuration to TypeScript files
     rules: {
       "no-var": LINT_LEVEL.ERROR,
       "no-undef": LINT_LEVEL.ERROR, // Disallow the use of undeclared variables
@@ -163,6 +156,7 @@ export default defineConfig([
   },
   //rules configuration - Stylistic Issues
   {
+    files: ["scripts/src/**/*.ts"], // Apply this configuration to TypeScript files
     rules: {
       "linebreak-style": [
         LINT_LEVEL.ERROR,

@@ -1,6 +1,6 @@
 import "../css/style.css";
 import { Logger } from "./logger/logger";
-import { createHeading } from "../greetings";
+import { createHeading } from "./greetings";
 
 const heading = createHeading("Hello, World!");
 document.body.appendChild(heading);
@@ -36,5 +36,4 @@ function sellApple(appleToSell: string | undefined): number {
     console.log("This will never be executed");
   }
 }
-
-const stringBuilderExample: boolean = false;
+const stringBuilderExample: string = "A" + "B";
