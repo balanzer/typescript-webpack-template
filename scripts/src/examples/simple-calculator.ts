@@ -5,7 +5,7 @@ export class SimpleCalculator {
    * @param b The second number.
    * @returns The sum of a and b.
    */
-  add(a: number, b: number): number {
+  public add(a: number, b: number): number {
     return a + b;
   }
 
@@ -15,7 +15,7 @@ export class SimpleCalculator {
    * @param b The second number (subtrahend).
    * @returns The difference of a and b.
    */
-  subtract(a: number, b: number): number {
+  public subtract(a: number, b: number): number {
     return a - b;
   }
 
@@ -25,7 +25,7 @@ export class SimpleCalculator {
    * @param b The second number.
    * @returns The product of a and b.
    */
-  multiply(a: number, b: number): number {
+  public multiply(a: number, b: number): number {
     return a * b;
   }
 
@@ -37,7 +37,7 @@ export class SimpleCalculator {
    * @returns The quotient of a and b.
    * @throws Error if b is 0.
    */
-  divide(a: number, b: number): number {
+  public divide(a: number, b: number): number {
     if (b === 0) {
       throw new Error("Cannot divide by zero.");
     }
@@ -52,7 +52,7 @@ export class SimpleCalculator {
    * @returns The remainder of the division.
    * @throws Error if b is 0.
    */
-  modulo(a: number, b: number): number {
+  public modulo(a: number, b: number): number {
     if (b === 0) {
       throw new Error("Cannot perform modulo with zero divisor.");
     }
@@ -65,7 +65,7 @@ export class SimpleCalculator {
    * @param exponent The exponent.
    * @returns The result of base raised to the exponent power.
    */
-  power(base: number, exponent: number): number {
+  public power(base: number, exponent: number): number {
     return Math.pow(base, exponent);
   }
 
@@ -76,7 +76,7 @@ export class SimpleCalculator {
    * @returns The square root of a.
    * @throws Error if a is negative.
    */
-  squareRoot(a: number): number {
+  public squareRoot(a: number): number {
     if (a < 0) {
       throw new Error("Cannot calculate square root of a negative number.");
     }

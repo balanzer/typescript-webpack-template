@@ -3,5 +3,3 @@ export function createHeading(text: string): HTMLHeadingElement {
   heading.textContent = text;
   return heading;
 }
-
-const Alldidls = "name";

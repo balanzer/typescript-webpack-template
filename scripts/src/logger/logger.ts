@@ -8,7 +8,7 @@ interface ILogger {
 
 export class Logger implements ILogger {
   private name: string;
-  constructor(name: string) {
+  public constructor(name: string) {
     this.name = name;
   }
   private formatMessage(message: string, ...args: any[]): string {
@@ -16,25 +16,25 @@ export class Logger implements ILogger {
       .map((arg) => JSON.stringify(arg))
       .join(" ")}`;
   }
-  debug(message: string, ...args: any[]): void {
+  public debug(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
     console.debug(formattedMessage);
   }
-  log(message: string, ...args: any[]): void {
+  public log(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
     console.info(formattedMessage);
   }
-  info(message: string, ...args: any[]): void {
+  public info(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
     console.info(formattedMessage);
   }
 
-  warn(message: string, ...args: any[]): void {
+  public warn(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
     console.warn(formattedMessage);
   }
 
-  error(message: string, ...args: any[]): void {
+  public error(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
     console.error(formattedMessage);
   }
