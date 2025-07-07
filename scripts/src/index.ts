@@ -32,4 +32,18 @@ if (false) {
   console.log("hello");
 }
 
-const AppleMAN = "test";
+let appleToSell;
+
+function sellApple(appleToSell: string | undefined): number {
+  if (appleToSell) {
+    logger.log("Selling apple: " + appleToSell);
+  } else {
+    logger.warn("No apple to sell");
+  }
+  if (true) {
+    return 0;
+    console.log("This will never be executed");
+  }
+}
+
+const stringBuilderExample: boolean = false;

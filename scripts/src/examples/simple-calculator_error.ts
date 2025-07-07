@@ -1,4 +1,5 @@
 export class SimpleCalculatorFix {
+  private apple: boolean = true;
   /**
    * Adds two numbers and returns the sum.
    * @param a The first number.

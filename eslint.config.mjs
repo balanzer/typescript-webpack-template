@@ -64,7 +64,7 @@ export default defineConfig([
   },
   tseslint.configs.recommended,
   //rules configuration
-  //common rules
+  //common rules - Best Practices
   {
     rules: {
       eqeqeq: [LINT_LEVEL.ERROR, "always", { null: "ignore" }],
@@ -74,17 +74,28 @@ export default defineConfig([
       "no-console": LINT_LEVEL.ERROR,
       "prefer-const": [LINT_LEVEL.ERROR, { ignoreReadBeforeAssign: true }],
       "@typescript-eslint/no-explicit-any": LINT_LEVEL.ERROR,
+      curly: "error",
+      "no-else-return": "error",
+      "no-fallthrough": "error",
+      "no-implicit-globals": "error",
+      "no-eval": "error",
+      "no-redeclare": "error",
+      "no-param-reassign": "error",
+      "prefer-const": "error",
     },
   },
   //rules configuration
   //standard rules
   {
+    files: ["scripts/src/**/*.{ts}"], // Apply this configuration to TypeScript files
     rules: {
       "@typescript-eslint/ban-ts-comment": LINT_LEVEL.ERROR,
       "@typescript-eslint/ban-tslint-comment": LINT_LEVEL.ERROR,
       "class-methods-use-this": LINT_LEVEL.OFF,
       "@typescript-eslint/class-methods-use-this": LINT_LEVEL.ERROR,
       "@typescript-eslint/explicit-function-return-type": LINT_LEVEL.ERROR,
+      "@typescript-eslint/explicit-member-accessibility": "error",
+      "@typescript-eslint/restrict-plus-operands": "error",
     },
   },
   //rules configuration - file naming conventions
@@ -110,7 +121,7 @@ export default defineConfig([
   //rules configuration
   //Enforcing naming conventions
   {
-    files: ["**/*.ts"], // Apply this configuration to TypeScript files
+    files: ["scripts/src/**/*.{ts}"], // Apply this configuration to TypeScript files
     rules: {
       "@typescript-eslint/naming-convention": [
         // Use the naming-convention rule from the typescript-eslint plugin
@@ -129,6 +140,97 @@ export default defineConfig([
           modifiers: ["const"], // Target const variables
           format: ["camelCase", "UPPER_CASE"], // Allow either camelCase or UPPER_CASE for const variables
         },
+        {
+          selector: "variable",
+          types: ["boolean"],
+          format: ["camelCase"],
+          prefix: ["is", "has", "can", "should", "will", "did"],
+        },
+      ],
+    },
+  },
+  //rules configuration - Possible Errors
+  {
+    rules: {
+      "no-var": "error",
+      "no-undef": "error", // Disallow the use of undeclared variables
+      "no-extra-semi": "error", // Disallow unnecessary semicolons
+      "no-empty": "error", // Disallow empty block statements
+      "no-unreachable": "error", // Disallow unreachable code after return, throw, continue, and break statements
+      "no-unreachable-loop": "error", // Disallow unreachable loops after a return statement
+    },
+  },
+  //rules configuration - Stylistic Issues
+  {
+    rules: {
+      "linebreak-style": [
+        "error",
+        "unix", // Enforce Unix linebreaks (LF)
+      ],
+      "max-len": [
+        "error",
+        { code: 120 }, // Enforce a maximum line length of 120 characters
+      ],
+      "no-multiple-empty-lines": [
+        "error",
+        { max: 1, maxEOF: 0 }, // Allow at most one empty line and no empty lines at the end of files
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always", // Enforce consistent spacing inside curly braces
+      ],
+      "array-bracket-spacing": [
+        "error",
+        "never", // Disallow spaces inside array brackets
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline", // Require trailing commas in multiline objects and arrays
+      ],
+      semi: [
+        "error",
+        "always", // Enforce semicolons at the end of statements
+      ],
+      "no-trailing-spaces": "error", // Disallow trailing whitespace at the end
+      "space-before-function-paren": [
+        "error",
+        {
+          anonymous: "always", // Require a space before anonymous function parentheses
+          named: "never", // Disallow a space before named function parentheses
+          asyncArrow: "always", // Require a space before async arrow function parentheses
+        },
+      ],
+      "keyword-spacing": [
+        "error",
+        { before: true, after: true }, // Enforce consistent spacing around keywords
+      ],
+      "space-infix-ops": "error", // Require spaces around infix operators
+      "space-unary-ops": [
+        "error",
+        { words: true, nonwords: false }, // Require spaces around unary operators
+      ],
+      "arrow-spacing": [
+        "error",
+        { before: true, after: true }, // Enforce consistent spacing around arrow functions
+      ],
+      "comma-spacing": [
+        "error",
+        { before: false, after: true }, // Enforce consistent spacing around commas
+      ],
+      "no-whitespace-before-property": "error", // Disallow whitespace before properties
+      "no-multi-spaces": "error", // Disallow multiple spaces
+      "no-duplicate-imports": "error", // Disallow duplicate imports
+      "no-useless-concat": "error", // Disallow unnecessary concatenation of strings
+      "no-useless-rename": "error", // Disallow unnecessary renaming of imports
+      "no-useless-return": "error", // Disallow unnecessary return statements
+      "no-useless-escape": "error", // Disallow unnecessary escape characters
+      "no-unsafe-negation": "error", // Disallow negation of the left operand of an in expression
+      "no-unsafe-optional-chaining": "error", // Disallow unsafe optional chaining
+      "no-unsafe-finally": "error", // Disallow unsafe use of finally blocks
+      quotes: [
+        "error",
+        "double", // Enforce double quotes for strings
+        { avoidEscape: true }, // Allow single quotes if double quotes are used inside
       ],
     },
   },
