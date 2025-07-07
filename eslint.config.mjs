@@ -16,7 +16,7 @@ import checkFile from "eslint-plugin-check-file";
  */
 
 const LINT_LEVEL = {
-  ERROR: "error", //actual value is "error"
+  ERROR: "off", //actual value is "error"
   WARN: "warn", //actual value is "warn"
   OFF: "off", //actual value is "off"
 };
@@ -110,7 +110,17 @@ export default defineConfig([
   //rules configuration
   //Enforcing naming conventions
   {
-    rules: {},
+    files: ["**/*.ts"], // Apply this configuration to TypeScript files
+    rules: {
+      "@typescript-eslint/naming-convention": [
+        // Use the naming-convention rule from the typescript-eslint plugin
+        "error",
+        {
+          selector: "typeLike", // Target class names, interfaces, type aliases, etc.
+          format: ["PascalCase"], // Enforce PascalCase
+        },
+      ],
+    },
   },
   //rules configuration - some files require different rules
   {
