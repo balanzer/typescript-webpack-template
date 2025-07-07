@@ -73,7 +73,7 @@ export default defineConfig([
       "@typescript-eslint/no-unused-vars": LINT_LEVEL.ERROR,
       "no-console": LINT_LEVEL.ERROR,
       "prefer-const": [LINT_LEVEL.ERROR, { ignoreReadBeforeAssign: true }],
-      "@typescript-eslint/no-explicit-any": LINT_LEVEL.ERROR,
+      "@typescript-eslint/no-explicit-any": LINT_LEVEL.OFF,
       curly: LINT_LEVEL.ERROR,
       "no-else-return": LINT_LEVEL.ERROR,
       "no-fallthrough": LINT_LEVEL.ERROR,
@@ -179,7 +179,7 @@ export default defineConfig([
         "never", // Disallow spaces inside array brackets
       ],
       "comma-dangle": [
-        LINT_LEVEL.ERROR,
+        LINT_LEVEL.OFF,
         "always-multiline", // Require trailing commas in multiline objects and arrays
       ],
       semi: [

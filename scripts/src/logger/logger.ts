@@ -18,20 +18,20 @@ export class Logger implements ILogger {
   }
   public debug(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
-    console.debug(formattedMessage);
+    console.log(formattedMessage);
   }
   public log(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
-    console.info(formattedMessage);
+    console.log(formattedMessage);
   }
   public info(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
-    console.info(formattedMessage);
+    console.log(formattedMessage);
   }
 
   public warn(message: string, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
-    console.warn(formattedMessage);
+    console.log(formattedMessage);
   }
 
   public error(message: string, ...args: any[]): void {
