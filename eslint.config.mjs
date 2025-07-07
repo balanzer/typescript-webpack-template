@@ -74,14 +74,14 @@ export default defineConfig([
       "no-console": LINT_LEVEL.ERROR,
       "prefer-const": [LINT_LEVEL.ERROR, { ignoreReadBeforeAssign: true }],
       "@typescript-eslint/no-explicit-any": LINT_LEVEL.ERROR,
-      curly: "error",
-      "no-else-return": "error",
-      "no-fallthrough": "error",
-      "no-implicit-globals": "error",
-      "no-eval": "error",
-      "no-redeclare": "error",
-      "no-param-reassign": "error",
-      "prefer-const": "error",
+      curly: LINT_LEVEL.ERROR,
+      "no-else-return": LINT_LEVEL.ERROR,
+      "no-fallthrough": LINT_LEVEL.ERROR,
+      "no-implicit-globals": LINT_LEVEL.ERROR,
+      "no-eval": LINT_LEVEL.ERROR,
+      "no-redeclare": LINT_LEVEL.ERROR,
+      "no-param-reassign": LINT_LEVEL.ERROR,
+      "prefer-const": LINT_LEVEL.ERROR,
     },
   },
   //rules configuration
@@ -94,8 +94,8 @@ export default defineConfig([
       "class-methods-use-this": LINT_LEVEL.OFF,
       "@typescript-eslint/class-methods-use-this": LINT_LEVEL.ERROR,
       "@typescript-eslint/explicit-function-return-type": LINT_LEVEL.ERROR,
-      "@typescript-eslint/explicit-member-accessibility": "error",
-      "@typescript-eslint/restrict-plus-operands": "error",
+      "@typescript-eslint/explicit-member-accessibility": LINT_LEVEL.ERROR,
+      "@typescript-eslint/restrict-plus-operands": LINT_LEVEL.ERROR,
     },
   },
   //rules configuration - file naming conventions
@@ -125,7 +125,7 @@ export default defineConfig([
     rules: {
       "@typescript-eslint/naming-convention": [
         // Use the naming-convention rule from the typescript-eslint plugin
-        "error",
+        LINT_LEVEL.ERROR,
         {
           selector: "typeLike", // Target class names, interfaces, type aliases, etc.
           format: ["PascalCase"], // Enforce PascalCase
@@ -151,49 +151,50 @@ export default defineConfig([
   },
   //rules configuration - Possible Errors
   {
+    files: ["scripts/src/**/*.{ts}"], // Apply this configuration to TypeScript files
     rules: {
-      "no-var": "error",
-      "no-undef": "error", // Disallow the use of undeclared variables
-      "no-extra-semi": "error", // Disallow unnecessary semicolons
-      "no-empty": "error", // Disallow empty block statements
-      "no-unreachable": "error", // Disallow unreachable code after return, throw, continue, and break statements
-      "no-unreachable-loop": "error", // Disallow unreachable loops after a return statement
+      "no-var": LINT_LEVEL.ERROR,
+      "no-undef": LINT_LEVEL.ERROR, // Disallow the use of undeclared variables
+      "no-extra-semi": LINT_LEVEL.ERROR, // Disallow unnecessary semicolons
+      "no-empty": LINT_LEVEL.ERROR, // Disallow empty block statements
+      "no-unreachable": LINT_LEVEL.ERROR, // Disallow unreachable code after return, throw, continue, and break statements
+      "no-unreachable-loop": LINT_LEVEL.ERROR, // Disallow unreachable loops after a return statement
     },
   },
   //rules configuration - Stylistic Issues
   {
     rules: {
       "linebreak-style": [
-        "error",
+        LINT_LEVEL.ERROR,
         "unix", // Enforce Unix linebreaks (LF)
       ],
       "max-len": [
-        "error",
+        LINT_LEVEL.ERROR,
         { code: 120 }, // Enforce a maximum line length of 120 characters
       ],
       "no-multiple-empty-lines": [
-        "error",
+        LINT_LEVEL.ERROR,
         { max: 1, maxEOF: 0 }, // Allow at most one empty line and no empty lines at the end of files
       ],
       "object-curly-spacing": [
-        "error",
+        LINT_LEVEL.ERROR,
         "always", // Enforce consistent spacing inside curly braces
       ],
       "array-bracket-spacing": [
-        "error",
+        LINT_LEVEL.ERROR,
         "never", // Disallow spaces inside array brackets
       ],
       "comma-dangle": [
-        "error",
+        LINT_LEVEL.ERROR,
         "always-multiline", // Require trailing commas in multiline objects and arrays
       ],
       semi: [
-        "error",
+        LINT_LEVEL.ERROR,
         "always", // Enforce semicolons at the end of statements
       ],
-      "no-trailing-spaces": "error", // Disallow trailing whitespace at the end
+      "no-trailing-spaces": LINT_LEVEL.ERROR, // Disallow trailing whitespace at the end
       "space-before-function-paren": [
-        "error",
+        LINT_LEVEL.ERROR,
         {
           anonymous: "always", // Require a space before anonymous function parentheses
           named: "never", // Disallow a space before named function parentheses
@@ -201,34 +202,34 @@ export default defineConfig([
         },
       ],
       "keyword-spacing": [
-        "error",
+        LINT_LEVEL.ERROR,
         { before: true, after: true }, // Enforce consistent spacing around keywords
       ],
-      "space-infix-ops": "error", // Require spaces around infix operators
+      "space-infix-ops": LINT_LEVEL.ERROR, // Require spaces around infix operators
       "space-unary-ops": [
-        "error",
+        LINT_LEVEL.ERROR,
         { words: true, nonwords: false }, // Require spaces around unary operators
       ],
       "arrow-spacing": [
-        "error",
+        LINT_LEVEL.ERROR,
         { before: true, after: true }, // Enforce consistent spacing around arrow functions
       ],
       "comma-spacing": [
-        "error",
+        LINT_LEVEL.ERROR,
         { before: false, after: true }, // Enforce consistent spacing around commas
       ],
-      "no-whitespace-before-property": "error", // Disallow whitespace before properties
-      "no-multi-spaces": "error", // Disallow multiple spaces
-      "no-duplicate-imports": "error", // Disallow duplicate imports
-      "no-useless-concat": "error", // Disallow unnecessary concatenation of strings
-      "no-useless-rename": "error", // Disallow unnecessary renaming of imports
-      "no-useless-return": "error", // Disallow unnecessary return statements
-      "no-useless-escape": "error", // Disallow unnecessary escape characters
-      "no-unsafe-negation": "error", // Disallow negation of the left operand of an in expression
-      "no-unsafe-optional-chaining": "error", // Disallow unsafe optional chaining
-      "no-unsafe-finally": "error", // Disallow unsafe use of finally blocks
+      "no-whitespace-before-property": LINT_LEVEL.ERROR, // Disallow whitespace before properties
+      "no-multi-spaces": LINT_LEVEL.ERROR, // Disallow multiple spaces
+      "no-duplicate-imports": LINT_LEVEL.ERROR, // Disallow duplicate imports
+      "no-useless-concat": LINT_LEVEL.ERROR, // Disallow unnecessary concatenation of strings
+      "no-useless-rename": LINT_LEVEL.ERROR, // Disallow unnecessary renaming of imports
+      "no-useless-return": LINT_LEVEL.ERROR, // Disallow unnecessary return statements
+      "no-useless-escape": LINT_LEVEL.ERROR, // Disallow unnecessary escape characters
+      "no-unsafe-negation": LINT_LEVEL.ERROR, // Disallow negation of the left operand of an in expression
+      "no-unsafe-optional-chaining": LINT_LEVEL.ERROR, // Disallow unsafe optional chaining
+      "no-unsafe-finally": LINT_LEVEL.ERROR, // Disallow unsafe use of finally blocks
       quotes: [
-        "error",
+        LINT_LEVEL.ERROR,
         "double", // Enforce double quotes for strings
         { avoidEscape: true }, // Allow single quotes if double quotes are used inside
       ],
