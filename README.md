@@ -43,3 +43,7 @@ html-webpack-plugin: A plugin that simplifies the creation of HTML files to serv
 ## ESLint
 
 `npm run lint`
+
+or 
+
+`npx eslint scripts/src/greetings.ts`
