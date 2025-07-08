@@ -12,11 +12,20 @@ interface DeviceData {
   [key: string]: any;
 }
 
-export class DataLayerDevice {
+abstract class DeviceDataBase {
+  protected abstract getDefaultValues(): any; // Abstract method, must be implemented by subclasses
+  public abstract get(): any; // Abstract method, must be implemented by subclasses
+  public abstract set(newData: Partial<any>): void;
+  public abstract validateAndCollectErrors(): string[];
+}
+
+export class DataLayerDevice extends DeviceDataBase {
   private _data: DeviceData;
   private logger = new Logger("device-data");
   public constructor(initialData?: Partial<DeviceData>) {
-    this._data = this.getDefaultDeviceData();
+    super();
+
+    this._data = this.getDefaultValues();
 
     // Merge any initial data provided by the user
     if (initialData) {
@@ -27,7 +36,7 @@ export class DataLayerDevice {
   /**
    * Provides default values for device properties.
    */
-  private getDefaultDeviceData(): DeviceData {
+  protected getDefaultValues(): DeviceData {
     return {
       userAgent: "unknown",
       screenWidth: 0,
@@ -90,7 +99,7 @@ export class DataLayerDevice {
    * @returns `string[]` errors all properties are invalid, `null` otherwise.
    */
 
-  public collectErrors(): string[] {
+  public validateAndCollectErrors(): string[] {
     const data = this._data; // Use a local reference
 
     // Helper for logging validation errors
@@ -99,7 +108,7 @@ export class DataLayerDevice {
       message: string,
       value: any
     ): void => {
-      this.logger.warn(
+      this.logger.log(
         `Invalid property "${property}": ${message}. Value: ${JSON.stringify(
           value
         )}`
@@ -108,7 +117,7 @@ export class DataLayerDevice {
 
     // --- Validate Required String Properties ---
     const stringProps: Array<keyof DeviceData> = [
-      "userAgent1",
+      "userAgent",
       "platform",
       "viewport",
       "orientation",
@@ -141,7 +150,7 @@ export class DataLayerDevice {
       }
     });
 
-    const errors: string[] = [];
+    const errors: string[] = ["123"];
 
     return errors;
   }

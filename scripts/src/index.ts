@@ -1,9 +1,10 @@
 import "../css/style.css";
+import { DataLayerDevice } from "./data/device";
 import { Logger } from "./logger/logger";
 import { DataStore } from "./store/state-manager/state-manager";
 
 const logger = new Logger("Main-App");
-logger.debug("This is a debug message.");
+logger.log("This is a debug message.");
 
 //create store
 
@@ -24,4 +25,12 @@ store.setState({ userName: "test123" });
 
 unsc(); // Unsubscribe the second listener
 
-const Aple = "test";
+const deviceTest = new DataLayerDevice();
+
+const deviceData = deviceTest.get();
+
+logger.log("deviceTest : ", deviceData);
+
+const errors = deviceTest.validateAndCollectErrors();
+
+logger.log("deviceTest errors: ", errors);
