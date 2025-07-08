@@ -7,8 +7,8 @@ interface DeviceData {
   viewportWidth: number; // Browser viewport width in pixels
   viewportHeight: number; // Browser viewport height in pixels
   platform: string; // The operating system platform (e.g., "Win32", "MacIntel")
-  orientation: "portrait" | "landscape" | "unknown";
-  viewport: "xsmall" | "large" | "small" | "media" | "unknown";
+  orientation: string;
+  viewport: string;
   [key: string]: any;
 }
 
@@ -47,15 +47,79 @@ export class DataLayerDevice extends DeviceDataBase {
    * Provides default values for device properties.
    */
   protected getDefaultValues(): DeviceData {
+    function getBrowserPlatform(): string {
+      // 1. Try User-Agent Client Hints (modern, preferred, but limited support)
+      if (
+        (navigator as any).userAgentData &&
+        (navigator as any).userAgentData.platform
+      ) {
+        return (navigator as any).userAgentData.platform;
+      }
+
+      // 2. Fallback to navigator.platform (deprecated, but widely supported for now)
+      if ((navigator as any).platform) {
+        return (navigator as any).platform;
+      }
+
+      // 3. Fallback to parsing User-Agent string (least reliable, but broadly available)
+      const userAgent = navigator.userAgent;
+      if (userAgent.includes("Win")) {
+        return "Windows";
+      }
+      if (userAgent.includes("Mac")) {
+        return "macOS";
+      }
+      // Android devices often contain "Linux" in their UA, so check for Android first
+      if (userAgent.includes("Android")) {
+        return "Android";
+      }
+      if (userAgent.includes("Linux")) {
+        return "Linux";
+      }
+      if (
+        userAgent.includes("iPhone") ||
+        userAgent.includes("iPad") ||
+        userAgent.includes("iPod")
+      ) {
+        return "iOS"; // Covers all Apple mobile devices
+      }
+
+      return "unknown";
+    }
+
+    function getViewportSize(width: number): string {
+      const breakpoints = {
+        xs: 0, // Extra small (less than 576px)
+        sm: 576, // Small (576px and up)
+        md: 768, // Medium (768px and up)
+        lg: 1200, // Large (992px and up)
+        // You can add more, e.g., xl: 1200
+      };
+
+      if (width >= breakpoints.lg) {
+        return "large";
+      } else if (width >= breakpoints.md) {
+        return "medium";
+      } else if (width >= breakpoints.sm) {
+        return "small";
+      }
+      return "xsmall";
+    }
+
+    const viewportWidth =
+      window.innerWidth | document.documentElement.clientWidth;
+    const viewportHeight =
+      window.innerHeight | document.documentElement.clientHeight;
+
     return {
-      userAgent: "unknown",
-      screenWidth: 0,
-      screenHeight: 0,
-      viewportWidth: 0,
-      viewportHeight: 0,
-      platform: "unknown",
-      orientation: "unknown",
-      viewport: "unknown",
+      userAgent: navigator.userAgent,
+      screenWidth: window.screen.width,
+      screenHeight: window.screen.height,
+      viewportWidth: viewportWidth,
+      viewportHeight: viewportHeight,
+      platform: getBrowserPlatform(),
+      orientation: viewportWidth > viewportHeight ? "landscape" : "portrait",
+      viewport: getViewportSize(viewportWidth),
     };
   }
 
