@@ -17,6 +17,16 @@ abstract class DeviceDataBase {
   public abstract get(): any; // Abstract method, must be implemented by subclasses
   public abstract set(newData: Partial<any>): void;
   public abstract validateAndCollectErrors(): string[];
+
+  // Helper for format message validation errors
+  protected formatMessage = (
+    property: string,
+    message: string,
+    value: any
+  ): string => {
+    const outputValue = `{${property}}-${message}-{${value}}`;
+    return outputValue;
+  };
 }
 
 export class DataLayerDevice extends DeviceDataBase {
@@ -100,20 +110,9 @@ export class DataLayerDevice extends DeviceDataBase {
    */
 
   public validateAndCollectErrors(): string[] {
-    const data = this._data; // Use a local reference
+    const validationErrors: string[] = [];
 
-    // Helper for logging validation errors
-    const logInvalid = (
-      property: string,
-      message: string,
-      value: any
-    ): void => {
-      this.logger.log(
-        `Invalid property "${property}": ${message}. Value: ${JSON.stringify(
-          value
-        )}`
-      );
-    };
+    const data = this._data; // Use a local reference
 
     // --- Validate Required String Properties ---
     const stringProps: Array<keyof DeviceData> = [
@@ -126,9 +125,11 @@ export class DataLayerDevice extends DeviceDataBase {
       if (
         typeof prop !== "string" ||
         typeof data[prop] !== "string" ||
-        data[prop].trim() === ""
+        data[prop].trim() === "" ||
+        data[prop].trim().toLowerCase() === "unknown"
       ) {
-        logInvalid(prop, "Expected a non-empty string.", data[prop]);
+        const errorMessage = this.formatMessage(prop, "invalid", data[prop]);
+        validationErrors.push(errorMessage);
       }
     });
 
@@ -146,12 +147,11 @@ export class DataLayerDevice extends DeviceDataBase {
         data[prop] <= 0 ||
         isNaN(data[prop])
       ) {
-        logInvalid(prop, "Expected a non-negative number.", data[prop]);
+        const errorMessage = this.formatMessage(prop, "invalid", data[prop]);
+        validationErrors.push(errorMessage);
       }
     });
 
-    const errors: string[] = ["123"];
-
-    return errors;
+    return validationErrors;
   }
 }
