@@ -10,7 +10,8 @@ interface DataState {
 
 // Define the type for a listener function
 // It receives the current state as an argument
-type StateListener = (state: DataState) => void;
+//type StateListener = (state: DataState) => void; //this is for entire state
+type StateListener = (state: string) => void; //this is for event message
 
 // Define the initial state
 
@@ -86,7 +87,8 @@ export class DataStore {
     // Call each listener with the *current* state
     this.listeners.forEach((listener) => {
       try {
-        listener(this.getState()); // Pass a copy of the state
+        //listener(this.getState()); // Pass a copy of the state
+        listener("state changed event message"); // event message
       } catch (error) {
         this.logger.error("Error in state listener:", error);
       }
