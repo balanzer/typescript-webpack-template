@@ -1,11 +1,11 @@
+import { DataLayerDevice, DeviceData } from "../../data/device";
 import { Logger } from "../../logger/logger";
 import { SaveDataBrowser } from "../../utils/save-data";
 
 // Define the shape of your application data state
 interface DataState {
-  count: number;
-  userName: string;
-  isLoggedIn: boolean;
+  device: DeviceData;
+  myAppData: any;
 }
 
 // Define the type for a listener function
@@ -13,10 +13,12 @@ interface DataState {
 type StateListener = (state: DataState) => void;
 
 // Define the initial state
+
+const initalDeviceData = new DataLayerDevice();
+
 const DEFAULT_INITIAL_STATE: DataState = {
-  count: 0,
-  userName: "",
-  isLoggedIn: false,
+  myAppData: { appName: "local-test", version: "1.0.12" },
+  device: initalDeviceData.get(),
 };
 
 /**

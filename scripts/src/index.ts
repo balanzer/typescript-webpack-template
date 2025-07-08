@@ -20,17 +20,12 @@ const unsc = store.subscribe((state) => {
   logger.log("State changed 2 :", state);
 });
 
-store.setState({ userName: "test" });
-store.setState({ userName: "test123" });
-
-unsc(); // Unsubscribe the second listener
-
 const deviceTest = new DataLayerDevice();
 
 const deviceData = deviceTest.get();
 
-logger.log("deviceTest : ", deviceData);
+const stateUpdates = {
+  device: deviceData,
+};
 
-const errors = deviceTest.validateAndCollectErrors();
-
-logger.log("deviceTest errors: ", errors);
+store.setState(stateUpdates);

@@ -1,6 +1,6 @@
 import { Logger } from "../logger/logger";
 
-interface DeviceData {
+export interface DeviceData {
   userAgent: string; // The full user agent string
   screenWidth: number; // Device screen width in pixels
   screenHeight: number; // Device screen height in pixels
