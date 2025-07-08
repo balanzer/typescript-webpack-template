@@ -1,10 +1,6 @@
 import "../css/style.css";
 import { Logger } from "./logger/logger";
-import { createHeading } from "./greetings";
 import { DataStore } from "./store/state-manager/state-manager";
-
-const heading = createHeading("Hello, World!");
-document.body.appendChild(heading);
 
 const logger = new Logger("Main-App");
 logger.debug("This is a debug message.");
@@ -27,3 +23,5 @@ store.setState({ userName: "test" });
 store.setState({ userName: "test123" });
 
 unsc(); // Unsubscribe the second listener
+
+const Aple = "test";

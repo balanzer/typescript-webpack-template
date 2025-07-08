@@ -108,13 +108,17 @@ export class DataLayerDevice {
 
     // --- Validate Required String Properties ---
     const stringProps: Array<keyof DeviceData> = [
-      "userAgent",
+      "userAgent1",
       "platform",
       "viewport",
       "orientation",
     ];
-    stringProps.forEach((prop) => {
-      if (typeof data[prop] !== "string" || data[prop].trim() === "") {
+    stringProps.forEach((prop: any): void => {
+      if (
+        typeof prop !== "string" ||
+        typeof data[prop] !== "string" ||
+        data[prop].trim() === ""
+      ) {
         logInvalid(prop, "Expected a non-empty string.", data[prop]);
       }
     });
@@ -126,8 +130,9 @@ export class DataLayerDevice {
       "viewportWidth",
       "viewportHeight",
     ];
-    numericProps.forEach((prop) => {
+    numericProps.forEach((prop: any) => {
       if (
+        typeof prop !== "string" ||
         typeof data[prop] !== "number" ||
         data[prop] <= 0 ||
         isNaN(data[prop])
