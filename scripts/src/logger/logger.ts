@@ -1,6 +1,5 @@
 interface ILogger {
   log(message: string, ...args: any[]): void;
-  logObjects(message: string, ...args: any[]): void;
   info(message: string, ...args: any[]): void;
   error(message: string, ...args: any[]): void;
 }
@@ -18,14 +17,24 @@ export class Logger implements ILogger {
   private formatName(message: any): string {
     return `[${this.name}] ${message}`;
   }
-  public logObjects(message: any, ...args: any[]): void {
-    const formattedMessage = this.formatName(message);
-    console.log(formattedMessage, args);
-  }
   public log(message: any, ...args: any[]): void {
-    const formattedMessage = this.formatMessage(message, ...args);
-    console.log(formattedMessage);
+    const formattedMessage = this.formatName(message);
+
+    if (!!args) {
+      if (args.length === 0) {
+        console.log(formattedMessage);
+      } else if (args.length === 1) {
+        console.log(formattedMessage, args[0]);
+      } else if (args.length === 2) {
+        console.log(formattedMessage, args[0], args[1]);
+      } else {
+        console.log(formattedMessage, args);
+      }
+    } else {
+      console.log(formattedMessage, args);
+    }
   }
+
   public info(message: any, ...args: any[]): void {
     const formattedMessage = this.formatMessage(message, ...args);
     console.info(formattedMessage);

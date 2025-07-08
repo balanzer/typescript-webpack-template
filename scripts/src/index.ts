@@ -33,4 +33,4 @@ logger.log("deviceTest : ", deviceData);
 
 const errors = deviceTest.validateAndCollectErrors();
 
-logger.logObjects("deviceTest errors: ", errors);
+logger.log("deviceTest errors: ", errors);
