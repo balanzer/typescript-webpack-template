@@ -1,4 +1,5 @@
 import { Logger } from "../logger/logger";
+import { BaseData } from "./base-data";
 
 export interface DeviceData {
   userAgent: string; // The full user agent string
@@ -12,24 +13,7 @@ export interface DeviceData {
   [key: string]: any;
 }
 
-abstract class DeviceDataBase {
-  protected abstract getDefaultValues(): any; // Abstract method, must be implemented by subclasses
-  public abstract get(): any; // Abstract method, must be implemented by subclasses
-  public abstract set(newData: Partial<any>): void;
-  public abstract validateAndCollectErrors(): string[];
-
-  // Helper for format message validation errors
-  protected formatMessage = (
-    property: string,
-    message: string,
-    value: any
-  ): string => {
-    const outputValue = `{${property}}-${message}-{${value}}`;
-    return outputValue;
-  };
-}
-
-export class DataLayerDevice extends DeviceDataBase {
+export class DataLayerDevice extends BaseData {
   private _data: DeviceData;
   private logger = new Logger("device-data");
   public constructor(initialData?: Partial<DeviceData>) {
@@ -128,6 +112,7 @@ export class DataLayerDevice extends DeviceDataBase {
    * @returns A copy of the DeviceData object.
    */
   public get(): DeviceData {
+    this.logger.log("Getting device data:", this._data);
     return JSON.parse(JSON.stringify(this._data));
   }
 
