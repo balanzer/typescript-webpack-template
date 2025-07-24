@@ -1,11 +1,10 @@
-import { DataLayerDevice, DeviceData } from "../../data/device";
+import { DeviceData, DeviceDataDetails } from "../../data/device";
 import { Logger } from "../../logger/logger";
 import { SaveDataBrowser } from "../../common/utils/save-data";
 
 // Define the shape of your application data state
 interface DataState {
   device: DeviceData;
-  myAppData: any;
 }
 
 // Define the type for a listener function
@@ -15,10 +14,9 @@ type StateListener = (state: string) => void; //this is for event message
 
 // Define the initial state
 
-const initalDeviceData = new DataLayerDevice();
+const initalDeviceData = new DeviceDataDetails();
 
 const DEFAULT_INITIAL_STATE: DataState = {
-  myAppData: { appName: "local-test", version: "1.0.12" },
   device: initalDeviceData.get(),
 };
 
@@ -48,10 +46,22 @@ export class DataStore {
    * Merges the new partial state with the current state.
    * @param newState A partial DataState object to merge.
    */
-  public setState(newState: Partial<DataState>): void {
+  private setState(newState: Partial<DataState>): void {
     const oldState = { ...this.state }; // Capture old state before update
     this.state = { ...this.state, ...newState }; // Merge new state
     this.logger.log("State updated:", oldState, " -> ", this.state);
+    this.publish(); // Notify all listeners
+  }
+
+  /**
+   * Update the state and notify all listeners.
+   * Merges the new partial state with the current state.
+   * @param newState A partial DataState object to merge.
+   */
+  public updateDeviceState(newState: Partial<DeviceData>): void {
+    const oldState = { ...this.state.device }; //get old state before update
+    this.state.device = { ...this.state.device, ...newState }; // Merge new state
+    this.logger.log("Device State updated:", oldState, " -> ", this.state);
     this.publish(); // Notify all listeners
   }
 

@@ -1,5 +1,5 @@
 import "../css/style.css";
-import { DataLayerDevice } from "./data/device";
+import { DeviceDataDetails } from "./data/device";
 import { Logger } from "./logger/logger";
 import { DataStore } from "./store/state-manager/state-manager";
 
@@ -12,20 +12,29 @@ const store = new DataStore();
 
 // Subscribe to state changes
 store.subscribe((state) => {
-  logger.log("State changed:", state);
+  logger.log("State changed from subscribe 1:", state);
 });
 
 // Subscribe to state changes
 const unsc = store.subscribe((state) => {
-  logger.log("State changed 2 :", state);
+  logger.log("State changed from subscribe 2 :", state);
 });
 
-const deviceTest = new DataLayerDevice();
+const deviceTest = new DeviceDataDetails();
 
-const deviceData = deviceTest.get();
+deviceTest.setProperty("orientation", "My Device");
+deviceTest.setProperty("battery", "100%");
 
-const stateUpdates = {
+const deviceDataToSave = deviceTest.get();
+
+logger.log("Updated Device data :", deviceDataToSave);
+
+store.updateDeviceState(deviceDataToSave);
+
+/*
+const stateUpdates1 = {
   device: deviceData,
 };
-
-store.setState(stateUpdates);
+logger.log("Device state saving :", deviceData);
+store.setDevice(stateUpdates1);
+*/

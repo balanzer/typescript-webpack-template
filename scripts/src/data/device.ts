@@ -13,7 +13,7 @@ export interface DeviceData {
   [key: string]: any;
 }
 
-export class DataLayerDevice extends BaseData {
+export class DeviceDataDetails extends BaseData {
   private _data: DeviceData;
   private logger = new Logger("device-data");
   public constructor(initialData?: Partial<DeviceData>) {
@@ -112,7 +112,8 @@ export class DataLayerDevice extends BaseData {
    * @returns A copy of the DeviceData object.
    */
   public get(): DeviceData {
-    this.logger.log("Getting device data:", this._data);
+    //this.logger.log("device data:", this._data);
+    //this.logger.log("device data failures:", this.getDataErrors());
     return JSON.parse(JSON.stringify(this._data));
   }
 
@@ -157,7 +158,7 @@ export class DataLayerDevice extends BaseData {
    * @returns `string[]` errors all properties are invalid, `null` otherwise.
    */
 
-  public validateAndCollectErrors(): string[] {
+  public getDataErrors(): string[] {
     const validationErrors: string[] = [];
 
     const data = this._data; // Use a local reference
