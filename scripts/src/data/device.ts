@@ -92,8 +92,7 @@ export class DataLayerDevice extends DeviceDataBase {
         xs: 0, // Extra small (less than 576px)
         sm: 576, // Small (576px and up)
         md: 768, // Medium (768px and up)
-        lg: 1200, // Large (992px and up)
-        // You can add more, e.g., xl: 1200
+        lg: 1200, // Large (1200px and up)
       };
 
       if (width >= breakpoints.lg) {

@@ -29,10 +29,3 @@ const stateUpdates = {
 };
 
 store.setState(stateUpdates);
-
-deviceTest.setProperty("platform", "Apple Updates");
-const deviceData2 = deviceTest.get();
-const stateUpdates2 = {
-  device: deviceData2,
-};
-store.setState(stateUpdates2);

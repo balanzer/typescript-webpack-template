@@ -1,6 +1,6 @@
 import { DataLayerDevice, DeviceData } from "../../data/device";
 import { Logger } from "../../logger/logger";
-import { SaveDataBrowser } from "../../utils/save-data";
+import { SaveDataBrowser } from "../../common/utils/save-data";
 
 // Define the shape of your application data state
 interface DataState {

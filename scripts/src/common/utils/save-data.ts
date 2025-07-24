@@ -1,4 +1,4 @@
-import { Logger } from "../logger/logger";
+import { Logger } from "../../logger/logger";
 
 export class SaveDataBrowser {
   public static saveData(data: any): void {
