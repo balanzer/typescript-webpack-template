@@ -29,7 +29,7 @@ const deviceDataToSave = deviceTest.get();
 
 logger.log("Updated Device data :", deviceDataToSave);
 
-store.updateDeviceState(deviceDataToSave);
+store.updateDeviceState(deviceDataToSave, true);
 
 /*
 const stateUpdates1 = {
