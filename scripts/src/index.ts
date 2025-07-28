@@ -1,40 +1,10 @@
 import "../css/style.css";
-import { DeviceDataDetails } from "./data/device";
+import { BuildDataLayer } from "./data-layer/build-data-layer";
 import { Logger } from "./logger/logger";
-import { DataStore } from "./store/state-manager/state-manager";
 
-const logger = new Logger("Main-App");
-logger.log("This is a debug message.");
+const logger = new Logger("Data-App");
 
-//create store
+const buildData = new BuildDataLayer();
+buildData.buildData();
 
-const store = new DataStore();
-
-// Subscribe to state changes
-store.subscribe((state) => {
-  logger.log("State changed from subscribe 1:", state);
-});
-
-// Subscribe to state changes
-const unsc = store.subscribe((state) => {
-  logger.log("State changed from subscribe 2 :", state);
-});
-
-const deviceTest = new DeviceDataDetails();
-
-deviceTest.setProperty("orientation", "My Device");
-deviceTest.setProperty("battery", "100%");
-
-const deviceDataToSave = deviceTest.get();
-
-logger.log("Updated Device data :", deviceDataToSave);
-
-store.updateDeviceState(deviceDataToSave, true);
-
-/*
-const stateUpdates1 = {
-  device: deviceData,
-};
-logger.log("Device state saving :", deviceData);
-store.setDevice(stateUpdates1);
-*/
+logger.log("Data App.");

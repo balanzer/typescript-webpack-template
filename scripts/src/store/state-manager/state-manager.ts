@@ -1,16 +1,21 @@
 import { DeviceData, DeviceDataDetails } from "../../data/device";
 import { Logger } from "../../logger/logger";
 import { SaveDataBrowser } from "../../common/utils/save-data";
+import { PrivacyData, PrivacyDataDetails } from "../../data/privacy";
+import { PageData, PageDataDetails } from "../../data/page";
 
 // Define the shape of your application data state
 interface DataState {
   device: DeviceData;
+  page: PageData;
+  privacy: PrivacyData;
 }
 
 enum StateSection {
   all = "all",
   device = "device",
   page = "page",
+  privacy = "privacy",
 }
 
 // Define the type for a listener function
@@ -21,9 +26,13 @@ type StateListener = (state: any) => void; //this is for event message
 // Define the initial state
 
 const initalDeviceData = new DeviceDataDetails();
+const initalPageData = new PageDataDetails();
+const initalPrivacyData = new PrivacyDataDetails();
 
 const DEFAULT_INITIAL_STATE: DataState = {
   device: initalDeviceData.get(),
+  page: initalPageData.get(),
+  privacy: initalPrivacyData.get(),
 };
 
 /**
@@ -60,7 +69,7 @@ export class DataStore {
   }
 
   /**
-   * Update the state and notify all listeners.
+   * Update device section of the state and notify all listeners.
    * Merges the new partial state with the current state.
    * @param newState A partial DataState object to merge.
    */
@@ -68,10 +77,36 @@ export class DataStore {
     newState: Partial<DeviceData>,
     notifyListeners: boolean = false
   ): void {
-    const oldState = { ...this.state.device }; //get old state before update
+    //const oldState = { ...this.state.device }; //get old state before update
     this.state.device = { ...this.state.device, ...newState }; // Merge new state
-    this.logger.log("Device State updated:", oldState, " -> ", this.state);
+    //this.logger.log("Device State updated:", oldState, " -> ", this.state);
     this.saveDataAndPublish(StateSection.device, notifyListeners); // Notify all listeners if reqd
+  }
+
+  /**
+   * Update page section of the state and notify all listeners.
+   * Merges the new partial state with the current state.
+   * @param newState A partial DataState object to merge.
+   */
+  public updatePageState(
+    newState: Partial<PageData>,
+    notifyListeners: boolean = false
+  ): void {
+    this.state.device = { ...this.state.device, ...newState };
+    this.saveDataAndPublish(StateSection.page, notifyListeners);
+  }
+
+  /**
+   * Update privacy section of the state and notify all listeners.
+   * Merges the new partial state with the current state.
+   * @param newState A partial DataState object to merge.
+   */
+  public updatePrivacyState(
+    newState: Partial<PrivacyData>,
+    notifyListeners: boolean = false
+  ): void {
+    this.state.device = { ...this.state.device, ...newState };
+    this.saveDataAndPublish(StateSection.privacy, notifyListeners);
   }
 
   /**

@@ -27,9 +27,9 @@ export class PrivacyDataDetails extends BaseData {
    */
   protected getDefaultValues(): PrivacyData {
     return {
-      notice_behavior: "unknown",
-      notice_gdpr_prefs: "unknown",
-      notice_preferences: "unknown",
+      notice_behavior: "tbd",
+      notice_gdpr_prefs: "tbd",
+      notice_preferences: "tbd",
     };
   }
 
