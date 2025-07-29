@@ -1,7 +1,7 @@
 import { Logger } from "../logger/logger";
-import { BaseData } from "./base-data";
+import { BaseData, CommonData } from "./base-data";
 
-export interface PrivacyData {
+export interface PrivacyData extends CommonData {
   notice_behavior: string;
   notice_gdpr_prefs: string;
   notice_preferences: string;
@@ -30,6 +30,7 @@ export class PrivacyDataDetails extends BaseData {
       notice_behavior: "tbd",
       notice_gdpr_prefs: "tbd",
       notice_preferences: "tbd",
+      validationErrors: [], // Initialize with an empty array
     };
   }
 
@@ -39,7 +40,7 @@ export class PrivacyDataDetails extends BaseData {
    * @returns A copy of the data object.
    */
   public get(): PrivacyData {
-    return JSON.parse(JSON.stringify(this._data));
+    return this._data;
   }
 
   /**

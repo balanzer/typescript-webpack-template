@@ -1,3 +1,7 @@
+export interface CommonData {
+  validationErrors: string[]; // Array to hold validation errors
+}
+
 export abstract class BaseData {
   protected abstract getDefaultValues(): any; // Abstract method, must be implemented by subclasses
   public abstract get(): any; // Abstract method, must be implemented by subclasses

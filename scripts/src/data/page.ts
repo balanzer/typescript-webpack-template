@@ -1,7 +1,7 @@
 import { Logger } from "../logger/logger";
-import { BaseData } from "./base-data";
+import { BaseData, CommonData } from "./base-data";
 
-export interface PageData {
+export interface PageData extends CommonData {
   type: string;
   [key: string]: any;
 }
@@ -26,6 +26,7 @@ export class PageDataDetails extends BaseData {
   protected getDefaultValues(): PageData {
     return {
       type: "tbd",
+      validationErrors: [], // Initialize with an empty array
     };
   }
 
@@ -35,7 +36,7 @@ export class PageDataDetails extends BaseData {
    * @returns A copy of the data object.
    */
   public get(): PageData {
-    return JSON.parse(JSON.stringify(this._data));
+    return this._data;
   }
 
   /**

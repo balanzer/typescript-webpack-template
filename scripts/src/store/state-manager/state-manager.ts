@@ -1,6 +1,6 @@
 import { DeviceData, DeviceDataDetails } from "../../data/device";
 import { Logger } from "../../logger/logger";
-import { SaveDataBrowser } from "../../common/utils/save-data";
+import { SaveDataBrowser } from "../../common/save-data/save-data";
 import { PrivacyData, PrivacyDataDetails } from "../../data/privacy";
 import { PageData, PageDataDetails } from "../../data/page";
 
@@ -77,9 +77,14 @@ export class DataStore {
     newState: Partial<DeviceData>,
     notifyListeners: boolean = false
   ): void {
-    //const oldState = { ...this.state.device }; //get old state before update
+    const oldState = { ...this.state.device }; //get old state before update
     this.state.device = { ...this.state.device, ...newState }; // Merge new state
-    //this.logger.log("Device State updated:", oldState, " -> ", this.state);
+    this.logger.log(
+      "Device State updated:",
+      oldState,
+      " -> ",
+      this.state.device
+    );
     this.saveDataAndPublish(StateSection.device, notifyListeners); // Notify all listeners if reqd
   }
 
@@ -92,7 +97,9 @@ export class DataStore {
     newState: Partial<PageData>,
     notifyListeners: boolean = false
   ): void {
-    this.state.device = { ...this.state.device, ...newState };
+    const oldState = { ...this.state.page }; //get old state before update
+    this.state.page = { ...this.state.page, ...newState };
+    this.logger.log("Page State updated:", oldState, " -> ", this.state.page);
     this.saveDataAndPublish(StateSection.page, notifyListeners);
   }
 
@@ -105,7 +112,14 @@ export class DataStore {
     newState: Partial<PrivacyData>,
     notifyListeners: boolean = false
   ): void {
-    this.state.device = { ...this.state.device, ...newState };
+    const oldState = { ...this.state.page }; //get old state before update
+    this.state.privacy = { ...this.state.privacy, ...newState };
+    this.logger.log(
+      "Privacy State updated:",
+      oldState,
+      " -> ",
+      this.state.privacy
+    );
     this.saveDataAndPublish(StateSection.privacy, notifyListeners);
   }
 

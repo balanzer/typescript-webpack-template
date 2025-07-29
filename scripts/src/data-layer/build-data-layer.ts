@@ -1,4 +1,8 @@
+import { DataSamples } from "../common/sample-json/test-data-import";
+import { ObjectUtils } from "../common/utils/object-utils";
+import { DeviceDataDetails } from "../data/device";
 import { PageDataDetails } from "../data/page";
+import { PrivacyDataDetails } from "../data/privacy";
 import { Logger } from "../logger/logger";
 import { DataStore } from "../store/state-manager/state-manager";
 
@@ -24,18 +28,50 @@ export class BuildDataLayer {
     // Example of unsubscribing
     //unsc.unsubscribe(); // Unsubscribe from the second subscriber
   }
-  public buildData(): void {
+  public processData(): void {
+    const inputData = DataSamples.getHomePage();
+    //this.logger.log("Input trackingJson Data :", inputData);
+
+    // process data
+    this.processDeviceData();
+    this.processPrivacyData();
+    this.processPageData(inputData);
+  }
+
+  /**
+   * Processes and saves page data.
+   */
+  public processPageData(inputParamData: any = {}): void {
+    const input = ObjectUtils.isNotEmpty(inputParamData) ? inputParamData : {};
+
+    const pageData = new PageDataDetails();
+
+    pageData.setProperty("type", input.applePage);
+
+    pageData.setProperty("validationErrors", pageData.getDataErrors()); // data validation errors
+    this.store.updatePageState(pageData.get());
+  }
+  public processDeviceData(): void {
     // save device data
     //device default data has all reqd properties
+    //TODO - Read values from browser APIs
 
+    const deviceData = new DeviceDataDetails();
+
+    deviceData.setProperty("viewport", "");
+    deviceData.setProperty("orientation", "");
+
+    deviceData.setProperty("validationErrors", deviceData.getDataErrors()); // data validation errors
+    this.store.updateDeviceState(deviceData.get());
+  }
+  public processPrivacyData(): void {
     // save privacy data
     //TODO - Read values from cookie
+    const privacyData = new PrivacyDataDetails();
 
-    //save page data
-    const pageData = new PageDataDetails();
-    pageData.setProperty("type", location.pathname);
-    pageData.setProperty("title", document.title);
-    pageData.setProperty("url", location.href);
-    this.store.updatePageState(pageData, true);
+    privacyData.setProperty("notice_gdpr_prefs", ""); // Example value
+
+    privacyData.setProperty("validationErrors", privacyData.getDataErrors()); // data validation errors
+    this.store.updatePrivacyState(privacyData.get());
   }
 }

@@ -5,7 +5,8 @@
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": false,                              
+    "skipLibCheck": false,   
+    "resolveJsonModule": true                            
   },
   "include": [
     "scripts/**/*"

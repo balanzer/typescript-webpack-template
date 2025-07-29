@@ -5,6 +5,7 @@ import { Logger } from "./logger/logger";
 const logger = new Logger("Data-App");
 
 const buildData = new BuildDataLayer();
-buildData.buildData();
 
-logger.log("Data App.");
+buildData.processData();
+
+logger.log("Data :", (window as any).appData);

@@ -40,6 +40,15 @@ html-webpack-plugin: A plugin that simplifies the creation of HTML files to serv
 
 `npm run build`
 
+
+## Unit Tests & Coverage 
+
+`npm run test`
+
+### test coverage results 
+
+`/coverage/lcov-report/index.html`
+
 ## ESLint
 
 `npm run lint`

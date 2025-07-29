@@ -1,0 +1,239 @@
+{
+  "appName": "find-hotels",
+  "countryCode": "US",
+  "region": "AMER",
+  "subRegion": "North America",
+  "isTablet": false,
+  "isWirelessDevice": false,
+  "latitude": null,
+  "longitude": null,
+  "clientIP": "108.217.118.76",
+  "iata": "",
+  "glat": "",
+  "beFreeCookieCreationDate": "",
+  "country": "US",
+  "language": "en",
+  "siteBrand": "6c",
+  "siteCountry": "US",
+  "siteLanguage": "en",
+  "categoryID": "6c,us,en",
+  "envName": "prod",
+  "browserInfo": {
+    "browser": "chrome",
+    "browserVersion": "138.0.0.0",
+    "device": "others",
+    "deviceType": "desktop",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+  },
+  "url": "https://www.ihg.com/hotels/us/en/find-hotels/hotel-search?fromRedirect=true&qBrs=6c.hi.ex.sb.ul.ic.cp.cw.in.vn.cv.rs.ki.kd.ma.sp.va.re.vx.nd.sx.we.lx.rn.sn.nu.ge&qSrt=sAV&qDest=Miami,%20FL,%20United%20States&qErm=false&qRms=1&qAdlt=1&qChld=0&qCiD=28&qCiMy=062025&qCoD=29&qCoMy=062025&qAAR=6CBARC&qRtP=6CBARC&setPMCookies=true&qpMbw=0&qpMn=0&srb_u=1&qRad=30&qRdU=mi",
+  "viewport": "lg",
+  "orientation": "landscape",
+  "sessionId": "2f23502d-4bdd-4198-9fa0-79edbefe3879",
+  "type": "hotelsearch",
+  "controllerName": "hotelsearchresult",
+  "timestamp": "1753748984049",
+  "akamaiCountryCode": "US",
+  "akamaiRegion": "AMER",
+  "akamaiSubRegion": "North America",
+  "edwSellSource": "WEBWB",
+  "isAMER": true,
+  "isAMEA": false,
+  "isEUR": false,
+  "isGC": false,
+  "triggerTracking": false,
+  "loginType": "ANONYMOUS",
+  "pcrNumber": "",
+  "isEmployee": "",
+  "membershipStatus": "",
+  "membershipStatusCode": "",
+  "ambassador": "FALSE",
+  "karmaMember": "FALSE",
+  "isBot": true,
+  "mapLoaded": false,
+  "groupCode": "",
+  "corporateId": "",
+  "confirmationNumber": "",
+  "adultCount": "1",
+  "childCount": "0",
+  "childDetails": [],
+  "roomCount": "1",
+  "rateCodes": "6CBARC",
+  "arrivalDate": "07/28/2025",
+  "checkInDate": "07/28/2025",
+  "checkOutDate": "07/29/2025",
+  "stayLength": "1",
+  "destination": "Miami, FL, United States",
+  "destLatitude": "25.773899",
+  "destLongitude": "-80.193901",
+  "roomNights": "1",
+  "roomCode": "",
+  "rateCode": "",
+  "groupContractCode": "",
+  "amenities": "",
+  "searchResults": "46",
+  "hotelCityStateCountryCode": "Miami,Florida,United States",
+  "bookedLocation": "Miami,Florida,United States",
+  "hotelLocation": "Miami,Florida,United States",
+  "hotelList": [
+    {
+      "hotel_code": "MIAEP",
+      "search_rank": 1,
+      "search_availability_rank": 1,
+      "currency_code": "USD",
+      "price_nightly": "199",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIABB",
+      "search_rank": 2,
+      "search_availability_rank": 2,
+      "currency_code": "USD",
+      "price_nightly": "115",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAHA",
+      "search_rank": 3,
+      "search_availability_rank": 3,
+      "currency_code": "USD",
+      "price_nightly": "183",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIANI",
+      "search_rank": 4,
+      "search_availability_rank": 4,
+      "currency_code": "USD",
+      "price_nightly": "140",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAWL",
+      "search_rank": 5,
+      "search_availability_rank": 5,
+      "currency_code": "USD",
+      "price_nightly": "174",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAPA",
+      "search_rank": 6,
+      "search_availability_rank": 6,
+      "currency_code": "USD",
+      "price_nightly": "111",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAAG",
+      "search_rank": 7,
+      "search_availability_rank": 7,
+      "currency_code": "USD",
+      "price_nightly": "125",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIANW",
+      "search_rank": 8,
+      "search_availability_rank": 8,
+      "currency_code": "USD",
+      "price_nightly": "94",
+      "availability": true
+    },
+    {
+      "hotel_code": "BRKBS",
+      "search_rank": 9,
+      "search_availability_rank": 19,
+      "currency_code": "USD",
+      "price_nightly": "0",
+      "availability": false
+    },
+    {
+      "hotel_code": "MIATS",
+      "search_rank": 10,
+      "search_availability_rank": 9,
+      "currency_code": "USD",
+      "price_nightly": "94",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAWM",
+      "search_rank": 11,
+      "search_availability_rank": 20,
+      "currency_code": "USD",
+      "price_nightly": "0",
+      "availability": false
+    },
+    {
+      "hotel_code": "MIASS",
+      "search_rank": 12,
+      "search_availability_rank": 10,
+      "currency_code": "USD",
+      "price_nightly": "165",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAEX",
+      "search_rank": 13,
+      "search_availability_rank": 11,
+      "currency_code": "USD",
+      "price_nightly": "118",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAIA",
+      "search_rank": 14,
+      "search_availability_rank": 12,
+      "currency_code": "USD",
+      "price_nightly": "104",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAVI",
+      "search_rank": 15,
+      "search_availability_rank": 13,
+      "currency_code": "USD",
+      "price_nightly": "104",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAMB",
+      "search_rank": 16,
+      "search_availability_rank": 14,
+      "currency_code": "USD",
+      "price_nightly": "104",
+      "availability": true
+    },
+    {
+      "hotel_code": "VGCCW",
+      "search_rank": 17,
+      "search_availability_rank": 15,
+      "currency_code": "USD",
+      "price_nightly": "100",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIALM",
+      "search_rank": 18,
+      "search_availability_rank": 16,
+      "currency_code": "USD",
+      "price_nightly": "118",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAMD",
+      "search_rank": 19,
+      "search_availability_rank": 17,
+      "currency_code": "USD",
+      "price_nightly": "104",
+      "availability": true
+    },
+    {
+      "hotel_code": "MIAHC",
+      "search_rank": 20,
+      "search_availability_rank": 18,
+      "currency_code": "USD",
+      "price_nightly": "203",
+      "availability": true
+    }
+  ]
+}
