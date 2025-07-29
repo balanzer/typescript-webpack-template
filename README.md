@@ -52,3 +52,14 @@ Open Terminal and execute installation command
 * view test coverage results at `/coverage/lcov-report/index.html`
 
 * ESLint `npm run lint` or `npx eslint scripts/src/greetings.ts` (to run single file)
+
+
+### IDE Setup - Visual studio extensions
+
+* Prettier - Code formatter 
+    * enable format on save
+    * disable single quote (consistency - lets use double quotes)
+
+* ESLint
+
+* Jest - vscode-jest (to run unit tests)
