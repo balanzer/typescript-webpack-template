@@ -1,58 +1,54 @@
-# typescript-webpack-template
+# Web Application Data Layer
 
-Setting Up a New Webpack Project with TypeScript
 
-## Clean install project
+* To install TypeScript globally use `npm install -g typescript` (not reqd)
 
-`npm ci`
+* `npx tsc --init` - Configuring TypeScript project (not reqd)
 
-## Install project
+* To check Node.js version: `node -v` or `node --version`
 
-`npm install`
+* To check npm version:: `npm -v` or `npm --version`
 
-## Webpack
+* To check Typescript version: `npx tsc -v` or `npx tsc --version`
 
-## Installing Dependencies
+
+## Data Layer App Setup Instructions
+
+Open Terminal and execute installation command
+
+### Clean install project
+
+`npm ci` or  `npm install`
+
+
+## Webpack Dependencies
+
+### Installing Dependencies (if reqd)
 
 `npm install webpack webpack-cli webpack-dev-server typescript ts-loader html-webpack-plugin --save-dev`
 
-webpack: The core module bundler.
+`webpack:` The core module bundler.
 
-webpack-cli: The command-line tool to run Webpack.
+`webpack-cli:` The command-line tool to run Webpack.
 
-webpack-dev-server: A development server that provides live reloading.
+`webpack-dev-server:` A development server that provides live reloading.
 
-typescript: The TypeScript compiler.
+`typescript:` The TypeScript compiler.
 
-ts-loader: A Webpack loader that transpiles TypeScript code into JavaScript.
+`ts-loader:` A Webpack loader that transpiles TypeScript code into JavaScript.
 
-html-webpack-plugin: A plugin that simplifies the creation of HTML files to serve your bundles
+`html-webpack-plugin:` A plugin that simplifies the creation of HTML files to serve your bundles
 
-## Configuring TypeScript
 
-`npx tsc --init`
 
 ## Running Project
 
-`npm start` - starts browser with (http://localhost:9000/)
+* build - `npm run build`
 
-## Build
+* start -  `npm start` - open browser url - `http://localhost:9000/`
 
-`npm run build`
+* unit tests & code coverage  - `npm run test` - check terminal for test results
 
+* view test coverage results at `/coverage/lcov-report/index.html`
 
-## Unit Tests & Coverage 
-
-`npm run test`
-
-### test coverage results 
-
-`/coverage/lcov-report/index.html`
-
-## ESLint
-
-`npm run lint`
-
-or 
-
-`npx eslint scripts/src/greetings.ts`
+* ESLint `npm run lint` or `npx eslint scripts/src/greetings.ts` (to run single file)
