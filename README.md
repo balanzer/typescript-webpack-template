@@ -58,7 +58,8 @@ Open Terminal and execute installation command
 
 * Prettier - Code formatter 
     * enable format on save
-    * disable single quote (consistency - lets use double quotes)
+    * disable single quote (consistency - lets use double quotes) - html, remove single quote setting for Prettier
+
 
 * ESLint
 
