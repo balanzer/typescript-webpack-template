@@ -1,7 +1,7 @@
 import { Logger } from "../logger/logger";
-import { BaseData, CommonData } from "./base-data";
+import { BaseData } from "./base-data";
 
-export interface PageData extends CommonData {
+export interface PageData {
   type: string;
   name: string;
   pathName: string;
@@ -33,7 +33,6 @@ export class PageDataDetails extends BaseData {
       pathName: "",
       title: "",
       // Add any other default properties as needed
-      validationErrors: [], // Initialize with an empty array
     };
   }
 

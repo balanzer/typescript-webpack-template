@@ -1,4 +1,5 @@
 import { DataSamples } from "../common/sample-json/test-data-import";
+import { ArrayUtils } from "../common/utils/array-utils";
 import { ObjectUtils } from "../common/utils/object-utils";
 import { DeviceDataDetails } from "../data/device";
 import { PageDataDetails } from "../data/page";
@@ -72,9 +73,15 @@ export class BuildDataLayer {
 
     const pageData = new PageDataDetails();
 
-    pageData.setProperty("type", input.applePage);
+    pageData.setProperty("type", "TODO" + input.type || "tbd");
 
-    pageData.setProperty("validationErrors", pageData.getDataErrors()); // data validation errors
+    pageData.setProperty("name", ""); // Placeholder for viewport
+    pageData.setProperty("title", ""); // Placeholder for orientation
+
+    const validationErrors = pageData.getDataErrors();
+    if (ArrayUtils.isNotEmpty(validationErrors)) {
+      this.store.updateValidationErrorState(validationErrors);
+    }
     this.store.updatePageState(pageData.get());
   }
   /**
@@ -92,10 +99,14 @@ export class BuildDataLayer {
 
     const deviceData = new DeviceDataDetails();
 
-    deviceData.setProperty("viewport", "");
-    deviceData.setProperty("orientation", "");
+    deviceData.setProperty("viewport", ""); // Placeholder for viewport
+    deviceData.setProperty("orientation", ""); // Placeholder for orientation
 
-    deviceData.setProperty("validationErrors", deviceData.getDataErrors()); // data validation errors
+    const validationErrors = deviceData.getDataErrors();
+    if (ArrayUtils.isNotEmpty(validationErrors)) {
+      this.store.updateValidationErrorState(validationErrors);
+    }
+
     this.store.updateDeviceState(deviceData.get());
   }
 
@@ -112,9 +123,11 @@ export class BuildDataLayer {
     //TODO - Read values from cookie
     const privacyData = new PrivacyDataDetails();
 
-    privacyData.setProperty("notice_gdpr_prefs", ""); // Example value
+    const validationErrors = privacyData.getDataErrors();
+    if (ArrayUtils.isNotEmpty(validationErrors)) {
+      this.store.updateValidationErrorState(validationErrors);
+    }
 
-    privacyData.setProperty("validationErrors", privacyData.getDataErrors()); // data validation errors
     this.store.updatePrivacyState(privacyData.get());
   }
 }

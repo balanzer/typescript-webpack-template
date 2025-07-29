@@ -1,7 +1,7 @@
 import { Logger } from "../logger/logger";
-import { BaseData, CommonData } from "./base-data";
+import { BaseData } from "./base-data";
 
-export interface PrivacyData extends CommonData {
+export interface PrivacyData {
   notice_behavior: string;
   notice_gdpr_prefs: string;
   notice_preferences: string;
@@ -27,10 +27,9 @@ export class PrivacyDataDetails extends BaseData {
    */
   protected getDefaultValues(): PrivacyData {
     return {
-      notice_behavior: "tbd",
-      notice_gdpr_prefs: "tbd",
-      notice_preferences: "tbd",
-      validationErrors: [], // Initialize with an empty array
+      notice_behavior: "",
+      notice_gdpr_prefs: "",
+      notice_preferences: "",
     };
   }
 

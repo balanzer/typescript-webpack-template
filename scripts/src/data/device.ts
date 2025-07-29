@@ -1,7 +1,7 @@
 import { Logger } from "../logger/logger";
-import { BaseData, CommonData } from "./base-data";
+import { BaseData } from "./base-data";
 
-export interface DeviceData extends CommonData {
+export interface DeviceData {
   userAgent: string; // The full user agent string
   screenWidth: number; // Device screen width in pixels
   screenHeight: number; // Device screen height in pixels
@@ -103,7 +103,6 @@ export class DeviceDataDetails extends BaseData {
       platform: getBrowserPlatform(),
       orientation: viewportWidth > viewportHeight ? "landscape" : "portrait",
       viewport: getViewportSize(viewportWidth),
-      validationErrors: [], // Initialize with an empty array
     };
   }
 

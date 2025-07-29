@@ -3,12 +3,22 @@ import { Logger } from "../../logger/logger";
 import { SaveDataBrowser } from "../../common/save-data/save-data";
 import { PrivacyData, PrivacyDataDetails } from "../../data/privacy";
 import { PageData, PageDataDetails } from "../../data/page";
+import { ArrayUtils } from "../../common/utils/array-utils";
 
 // Define the shape of your application data state
 interface DataState {
   device: DeviceData;
   page: PageData;
   privacy: PrivacyData;
+  user: any; // Placeholder for user data, can be defined later
+  errors: any; // Placeholder for error data, can be defined later
+  marketing: any; // Placeholder for marketing data, can be defined later
+  search: any; // Placeholder for search data, can be defined later
+  hotelDetails: any; // Placeholder for hotel details data, can be defined later
+  roomAndRates: any; // Placeholder for room and rates data, can be defined later
+  cart: any; // Placeholder for cart data, can be defined later
+  transaction: any; // Placeholder for transaction data, can be defined later
+  validationErrors: string[]; // Optional array for validation errors
 }
 
 enum StateSection {
@@ -16,6 +26,14 @@ enum StateSection {
   device = "device",
   page = "page",
   privacy = "privacy",
+  user = "user",
+  errors = "errors",
+  marketing = "marketing",
+  search = "search",
+  hotelDetails = "hotelDetails",
+  roomAndRates = "roomAndRates",
+  cart = "cart",
+  transaction = "transaction",
 }
 
 // Define the type for a listener function
@@ -33,6 +51,15 @@ const DEFAULT_INITIAL_STATE: DataState = {
   device: initalDeviceData.get(),
   page: initalPageData.get(),
   privacy: initalPrivacyData.get(),
+  user: {},
+  errors: {},
+  marketing: {},
+  search: {},
+  hotelDetails: {},
+  roomAndRates: {},
+  cart: {},
+  transaction: {},
+  validationErrors: [], // Initialize with an empty array
 };
 
 /**
@@ -121,6 +148,25 @@ export class DataStore {
       this.state.privacy
     );
     this.saveDataAndPublish(StateSection.privacy, notifyListeners);
+  }
+  /**
+   * Update validation error state.
+   * Merges the new validation errors with the current state.
+   * @param validationErrors
+   */
+  public updateValidationErrorState(newState: string[]): void {
+    const oldState = this.state.validationErrors; //get old state and merge if reqd
+
+    if (ArrayUtils.isEmpty(oldState)) {
+      this.state.validationErrors = [...newState];
+    } else {
+      this.state.validationErrors = ArrayUtils.unique([
+        ...oldState,
+        ...newState,
+      ]);
+    }
+    //const mergedState = oldState.concat(newState);
+    // this.state.dataLayerErrors = { ...mergedState };
   }
 
   /**
