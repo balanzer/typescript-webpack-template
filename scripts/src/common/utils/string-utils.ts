@@ -35,6 +35,28 @@ export class StringUtils {
   }
 
   /**
+   * Capitalizes entire string - toUpperCase.
+   * @param str The string to capitalize.
+   * @returns The string with the capitalized, or an empty string if input is null/undefined/empty.
+   */
+  public static toUpperCase(str: string | null | undefined): string {
+    if (StringUtils.isEmpty(str)) {
+      return "";
+    }
+    return str!.toUpperCase();
+  }
+
+  /**
+   * Convert entire string to lowercase.
+   */
+  public static toLowerCase(str: string | null | undefined): string {
+    if (StringUtils.isEmpty(str)) {
+      return "";
+    }
+    return str!.toLowerCase();
+  }
+
+  /**
    * Capitalizes the first letter of a string.
    * @param str The string to capitalize.
    * @returns The string with the first letter capitalized, or an empty string if input is null/undefined/empty.
