@@ -45,7 +45,7 @@ export class DataStore {
 
   public constructor(initialState: DataState = DEFAULT_INITIAL_STATE) {
     this.state = { ...initialState }; // Initialize state with a copy
-    this.logger.log("Store initialized with state:", this.state);
+    //this.logger.log("Store initialized with state:", this.state);
   }
 
   /**
@@ -130,10 +130,11 @@ export class DataStore {
    */
   public subscribe(listener: StateListener): () => void {
     this.listeners.push(listener);
+    /**
     this.logger.log(
       "Listener subscribed. Total listeners:",
       this.listeners.length
-    );
+    ); */
 
     // Return an unsubscribe function
     return () => {
@@ -143,6 +144,24 @@ export class DataStore {
         this.listeners.length
       );
     };
+  }
+
+  public publishEvent(
+    message: string,
+    sectionGotUpdated: StateSection = StateSection.all
+  ): void {
+    // Call each listener
+    this.listeners.forEach((listener) => {
+      try {
+        const eventMessage = {
+          message: message,
+          section: sectionGotUpdated,
+        };
+        listener(eventMessage); // event message
+      } catch (error) {
+        this.logger.error("Error in state listener:", error);
+      }
+    });
   }
 
   /**
@@ -156,18 +175,8 @@ export class DataStore {
     //save data to browser
     SaveDataBrowser.saveData(this.getState());
     // Call each listener
-    this.listeners.forEach((listener) => {
-      try {
-        if (notifyListeners === true) {
-          const eventMessage = {
-            message: "State updated",
-            section: sectionGotUpdated,
-          };
-          listener(eventMessage); // event message
-        }
-      } catch (error) {
-        this.logger.error("Error in state listener:", error);
-      }
-    });
+    if (notifyListeners === true) {
+      this.publishEvent("data-updated", sectionGotUpdated);
+    }
   }
 }

@@ -5,6 +5,6 @@ export class SaveDataBrowser {
     const logger = new Logger("save-data-browser");
     //logger.log("->->Data Layer<-<- :", data);
     logger.log("save data to browser");
-    (window as any).appData = data;
+    (window as any).dataLayer = data;
   }
 }

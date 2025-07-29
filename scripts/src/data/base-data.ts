@@ -14,7 +14,7 @@ export abstract class BaseData {
     message: string,
     value: any
   ): string => {
-    const outputValue = `{${property}}-${message}-{${value}}`;
+    const outputValue = `{${property}(${value})}-${message}`;
     return outputValue;
   };
 }

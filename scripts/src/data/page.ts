@@ -3,6 +3,9 @@ import { BaseData, CommonData } from "./base-data";
 
 export interface PageData extends CommonData {
   type: string;
+  name: string;
+  pathName: string;
+  title: string;
   [key: string]: any;
 }
 
@@ -25,7 +28,11 @@ export class PageDataDetails extends BaseData {
    */
   protected getDefaultValues(): PageData {
     return {
-      type: "tbd",
+      type: "",
+      name: "",
+      pathName: "",
+      title: "",
+      // Add any other default properties as needed
       validationErrors: [], // Initialize with an empty array
     };
   }
@@ -86,7 +93,12 @@ export class PageDataDetails extends BaseData {
     const data = this._data; // Use a local reference
 
     // --- Validate Required String Properties ---
-    const stringProps: Array<keyof PageData> = ["type"];
+    const stringProps: Array<keyof PageData> = [
+      "type",
+      "name",
+      "pathName",
+      "title",
+    ];
     stringProps.forEach((prop: any): void => {
       if (
         typeof prop !== "string" ||
