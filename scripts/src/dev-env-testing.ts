@@ -21,9 +21,9 @@ export class TestDevEnv {
     this.logger.log("TestDevEnv initialized.");
   }
 
-  //eslint - missing return type error
+  //eslint error - missing return type error
   public runTest() {
-    //eslint - console.log not allowed.
+    //eslint error - console.log not allowed.
     console.log("Running test for double quotes:", this.checkDoubleQuotes);
   }
 }
