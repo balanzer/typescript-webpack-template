@@ -1,0 +1,17 @@
+{
+  "entryPoints": ["./scripts/src/**/*.ts"],
+  "json": "dl-docs/json/data.json",
+  "exclude": [
+    "**/test/*", // Excludes all files and folders within a 'test' directory
+    "**/*.spec.ts", // Excludes all files ending with .spec.ts
+    "**/internal.ts" // Excludes a specific file named internal.ts
+  ],
+  "excludeNotDocumentedKinds": [
+    "Function",
+    "Variable",
+    "Class",
+    "Enum",
+    "TypeAlias",
+    "Namespace"
+  ]
+}

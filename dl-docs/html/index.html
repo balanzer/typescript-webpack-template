@@ -1,0 +1,59 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>typescript-webpack-template</title><meta name="description" content="Documentation for typescript-webpack-template"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script><script async src="assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">typescript-webpack-template</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>typescript-webpack-template</h1></div><div class="tsd-panel tsd-typography"><h1 id="web-application-data-layer" class="tsd-anchor-link">Web Application Data Layer<a href="#web-application-data-layer" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1><ul>
+<li>
+<p>To install TypeScript globally use <code>npm install -g typescript</code> (not reqd)</p>
+</li>
+<li>
+<p><code>npx tsc --init</code> - Configuring TypeScript project (not reqd)</p>
+</li>
+<li>
+<p>To check Node.js version: <code>node -v</code> or <code>node --version</code></p>
+</li>
+<li>
+<p>To check npm version:: <code>npm -v</code> or <code>npm --version</code></p>
+</li>
+<li>
+<p>To check Typescript version: <code>npx tsc -v</code> or <code>npx tsc --version</code></p>
+</li>
+</ul>
+<h2 id="data-layer-app-setup-instructions" class="tsd-anchor-link">Data Layer App Setup Instructions<a href="#data-layer-app-setup-instructions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><p>Open Terminal and execute installation command</p>
+<h3 id="clean-install-project" class="tsd-anchor-link">Clean install project<a href="#clean-install-project" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><code>npm ci</code> or  <code>npm install</code></p>
+<h2 id="webpack-dependencies" class="tsd-anchor-link">Webpack Dependencies<a href="#webpack-dependencies" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><h3 id="installing-dependencies-if-reqd" class="tsd-anchor-link">Installing Dependencies (if reqd)<a href="#installing-dependencies-if-reqd" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p><code>npm install webpack webpack-cli webpack-dev-server typescript ts-loader html-webpack-plugin --save-dev</code></p>
+<p><code>webpack:</code> The core module bundler.</p>
+<p><code>webpack-cli:</code> The command-line tool to run Webpack.</p>
+<p><code>webpack-dev-server:</code> A development server that provides live reloading.</p>
+<p><code>typescript:</code> The TypeScript compiler.</p>
+<p><code>ts-loader:</code> A Webpack loader that transpiles TypeScript code into JavaScript.</p>
+<p><code>html-webpack-plugin:</code> A plugin that simplifies the creation of HTML files to serve your bundles</p>
+<h2 id="running-project" class="tsd-anchor-link">Running Project<a href="#running-project" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><ul>
+<li>
+<p>build - <code>npm run build</code></p>
+</li>
+<li>
+<p>start -  <code>npm start</code> - open browser url - <code>http://localhost:9000/</code></p>
+</li>
+<li>
+<p>unit tests &amp; code coverage  - <code>npm run test</code> - check terminal for test results</p>
+</li>
+<li>
+<p>view test coverage results at <code>/coverage/lcov-report/index.html</code></p>
+</li>
+<li>
+<p>ESLint <code>npm run lint</code> or <code>npx eslint scripts/src/greetings.ts</code> (to run single file)</p>
+</li>
+</ul>
+<h3 id="ide-setup---visual-studio-extensions" class="tsd-anchor-link">IDE Setup - Visual studio extensions<a href="#ide-setup---visual-studio-extensions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
+<li>
+<p>Prettier - Code formatter</p>
+<ul>
+<li>enable format on save</li>
+<li>disable single quote (consistency - lets use double quotes) - html, remove single quote setting for Prettier</li>
+</ul>
+</li>
+<li>
+<p>ESLint</p>
+</li>
+<li>
+<p>Jest - vscode-jest (to run unit tests)</p>
+</li>
+</ul>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#web-application-data-layer"><span>Web <wbr/>Application <wbr/>Data <wbr/>Layer</span></a><ul><li><a href="#data-layer-app-setup-instructions"><span>Data <wbr/>Layer <wbr/>App <wbr/>Setup <wbr/>Instructions</span></a></li><li><ul><li><a href="#clean-install-project"><span>Clean install project</span></a></li></ul></li><li><a href="#webpack-dependencies"><span>Webpack <wbr/>Dependencies</span></a></li><li><ul><li><a href="#installing-dependencies-if-reqd"><span>Installing <wbr/>Dependencies (if reqd)</span></a></li></ul></li><li><a href="#running-project"><span>Running <wbr/>Project</span></a></li><li><ul><li><a href="#ide-setup---visual-studio-extensions"><span>IDE <wbr/>Setup -<wbr/> <wbr/>Visual studio extensions</span></a></li></ul></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">typescript-webpack-template</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

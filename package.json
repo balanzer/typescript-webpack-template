@@ -10,7 +10,10 @@
     "test": "jest",
     "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
-    "lint": "npx eslint ."
+    "lint": "npx eslint .",
+    "docs:html": "typedoc --options typedoc.full.json",
+    "docs:json": "typedoc --options typedoc.json.json",
+    "docs": "npm run docs:html && npm run docs:json"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +36,7 @@
     "style-loader": "^4.0.0",
     "ts-jest": "^29.4.0",
     "ts-loader": "^9.5.2",
+    "typedoc": "^0.28.12",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.35.1",
     "webpack": "^5.99.9",
