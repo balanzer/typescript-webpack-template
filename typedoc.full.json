@@ -1,6 +1,6 @@
 {
   "entryPoints": ["./scripts/src/**/*.ts"],
-  "out": "dl-docs/html",
+  "out": "dist/dl-docs/html",
   "exclude": [
     "**/test/*", // Excludes all files and folders within a 'test' directory
     "**/*.spec.ts", // Excludes all files ending with .spec.ts
