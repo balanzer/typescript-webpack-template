@@ -1,5 +1,5 @@
 {
-  "entryPoints": ["./scripts/src/**/*.ts"],
+  "entryPoints": ["./scripts/src/data/interface/**/*.ts"],
   "json": "dist/dl-docs/json/data.json",
   "exclude": [
     "**/test/*", // Excludes all files and folders within a 'test' directory
